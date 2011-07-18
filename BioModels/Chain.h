@@ -14,7 +14,13 @@
 class Chain : public Entity {
 public:
 	Chain();
+	Chain(string name);
 	virtual ~Chain();
+
+	friend ostream &operator<<(ostream &out, const Chain &c);
+
+private:
+
 };
 
 #endif /* CHAIN_H_ */

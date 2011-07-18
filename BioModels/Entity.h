@@ -9,15 +9,37 @@
 #define ENTITY_H_
 
 #include "Includes.h"
+#include "boost/foreach.hpp"
 
 class Entity {
 public:
+
+	// Construction and destruction
 	Entity();
 	virtual ~Entity();
 
+	// Setters
 	void add_child(Entity child);
+	void set_parent(Entity parent);
+	void set_name(string name);
 
-	//vector<Entity*> get_child_vector()
+	// Getters
+	vector<Entity*> get_child_vector();
+	Entity*         get_parent();
+	string			get_name() const;
+
+	// Model-Specific getters
+	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
+	vector<Entity*> get_atoms(bool at_top);
+
+	// Statistics
+	int n_children() const;
+
+	// Output methods
+	friend ostream &operator<<(ostream &out, const Entity &e);
+
+	bool is_bottom;
+	bool is_top;
 
 private:
 
@@ -26,14 +48,20 @@ private:
 	// is left to zero.
 	int pk;
 
-	// Integer ID denoting this entity for the DB
+	// Integer ID denoting this eEtity for the DB
 	int id;
 
+	// A human readable name of the Entity. Defaults to empty string
+	string m_name;
+
 	// Vector to hold references to all the child objects to the parent
-	vector<Entity*> children;
+	vector<Entity*> m_children;
 
 	// The parent reference
-	Entity* parent;
+	Entity* m_parent;
+
+	// A vector of all the bottom-level atom elements
+	vector<Entity*> atom_vector;
 };
 
 #endif /* ENTITY_H_ */

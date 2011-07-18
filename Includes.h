@@ -13,4 +13,8 @@
 #include <vector>
 using namespace std;
 
+// BOOST_FOREACH in all caps is ugly.
+#define foreach         BOOST_FOREACH
+#define DEBUG			true
+
 #endif /* INCLUDES_H_ */

@@ -29,7 +29,7 @@ public:
 	PDBParser(string filename);
 	virtual ~PDBParser();
 
-	void parse();
+	vector<Structure> parse_pdb_file();
 
 private:
 	string pdb_filename;

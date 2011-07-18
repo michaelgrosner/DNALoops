@@ -17,8 +17,9 @@ public:
 	Residue(string name, int position);
 	virtual ~Residue();
 
+	friend ostream &operator<<(ostream &out, const Residue &r);
+
 private:
-	string name;
 	int position;
 
 	int pk;

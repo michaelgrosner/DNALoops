@@ -7,18 +7,20 @@
 
 #include "Atom.h"
 
-Atom::Atom(string name, double x, double y, double z) : name(name),
-														x(x),
+Atom::Atom(string name, double x, double y, double z) : x(x),
 														y(y),
-														z(z) {}
+														z(z) {
+	set_name(name);
+	is_bottom = true;
+}
 
 Atom::~Atom() {
 	// TODO Auto-generated destructor stub
 }
 
 ostream& operator<< (ostream &out, const Atom &a) {
-	out << "<Atom: ";
-	out << "x = " << a.x;
+	out << "<Atom: " << a.get_name();
+	out << ", x = " << a.x;
 	out << ", y = " << a.y;
 	out << ", z = " << a.z;
 	out << ">";

@@ -8,10 +8,14 @@
 #include "Loop.h"
 
 Loop::Loop() {
-	// TODO Auto-generated constructor stub
-
+	is_top = true;
 }
 
 Loop::~Loop() {
 	// TODO Auto-generated destructor stub
+}
+
+ostream& operator<< (ostream &out, const Loop &l) {
+	out << "<Loop "<< l.get_name() <<" with " << l.n_children() << " structures>";
+	return out;
 }

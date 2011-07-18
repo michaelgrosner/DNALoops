@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lsqlite3 -lboost_system -lboost_iostreams -lboost_filesystem
+LIBS := -lboost_filesystem -lsqlite3 -lboost_system -lboost_iostreams
 

@@ -27,8 +27,6 @@ private:
 
 	int fk;
 
-	string name;
-
 };
 
 #endif /* ATOM_H_ */

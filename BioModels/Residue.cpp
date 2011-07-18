@@ -9,8 +9,15 @@
 
 Residue::Residue() {}
 
-Residue::Residue(string name, int position) : name(name), position(position) {}
+Residue::Residue(string name, int position) : position(position) {
+	set_name(name);
+}
 
 Residue::~Residue() {
 	// TODO Auto-generated destructor stub
+}
+
+ostream& operator<< (ostream &out, const Residue &r) {
+	out << "<Residue " << r.get_name() << " with " << r.n_children() << " atoms>";
+	return out;
 }

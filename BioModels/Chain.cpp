@@ -7,11 +7,16 @@
 
 #include "Chain.h"
 
-Chain::Chain() {
-	// TODO Auto-generated constructor stub
-
+Chain::Chain(string name) {
+	set_name(name);
 }
+Chain::Chain() {}
 
 Chain::~Chain() {
 	// TODO Auto-generated destructor stub
+}
+
+ostream& operator<< (ostream &out, const Chain &c) {
+	out << "<Chain " << c.get_name() << " with " << c.n_children() << " residues>";
+	return out;
 }

@@ -16,10 +16,13 @@ PDBLoopParser::~PDBLoopParser() {
 	// TODO Auto-generated destructor stub
 }
 
-void PDBLoopParser::parse() {
+Loop PDBLoopParser::parse() {
 
 	// TODO: Check for slash between directory and *.pdb
 	string glob_query = m_directory + "*.pdb";
+
+	Loop l;
+	l.set_name(m_directory);
 
 	glob_t globbuf;
 	globbuf.gl_offs = 2;
@@ -30,13 +33,27 @@ void PDBLoopParser::parse() {
 
 	for (unsigned int i = 0; i < globbuf.gl_pathc; i++) {
 		m_filepaths.push_back(globbuf.gl_pathv[i]);
-		parse_single(globbuf.gl_pathv[i]);
+		vector<Structure> structures = parse_single(globbuf.gl_pathv[i]);
+
+		vector<Structure>::iterator it;
+		for (it=structures.begin(); it < structures.end(); it++) {
+			l.add_child(*it);
+		}
 	}
+
+	if (DEBUG) {
+		foreach (Entity *s, l.get_child_vector()) {
+			cout << "Structure: " << s << endl;
+		}
+	}
+
+	return l;
 
 }
 
-void PDBLoopParser::parse_single(string filename) {
+vector<Structure> PDBLoopParser::parse_single(string filename) {
 	PDBParser* p = new PDBParser(filename);
 
-	p->parse();
+	return p->parse_pdb_file();
+
 }

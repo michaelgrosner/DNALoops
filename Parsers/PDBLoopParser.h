@@ -12,8 +12,10 @@
 
 #include <glob.h>
 #include "boost/filesystem.hpp"   // includes all needed Boost.Filesystem declarations
+#include "boost/foreach.hpp"
 #include "PDBParser.h"
 #include "BioModels/Loop.h"
+#include "BioModels/Structure.h"
 using namespace boost::filesystem;
 
 class PDBLoopParser {
@@ -21,15 +23,14 @@ public:
 	PDBLoopParser(string model_directory);
 	virtual ~PDBLoopParser();
 
-	void parse();
+	Loop parse();
 
 private:
 
-	void parse_single(string filename);
+	vector<Structure> parse_single(string filename);
 
 	string         m_directory;
 	vector<string> m_filepaths;
-	//Loop           m_loop;
 
 };
 
