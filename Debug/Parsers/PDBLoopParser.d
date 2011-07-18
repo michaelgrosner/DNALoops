@@ -1,7 +1,6 @@
 Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
  ../Parsers/PDBLoopParser.cpp ../Parsers/PDBLoopParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h \
- ../Parsers/PDBParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
@@ -12,8 +11,6 @@ Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
 ../Parsers/PDBLoopParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h:
-
-../Parsers/PDBParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 

@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Database/SQLiteDB.h"
 #include "Parsers/PDBLoopParser.h"
+#include "Tests/test_biomodels.h"
 using namespace std;
 
 int main () {
@@ -29,14 +30,17 @@ int main () {
 
 	db->close();*/
 
-	Loop l;
-	PDBLoopParser* loop_parser;
-	loop_parser = new PDBLoopParser("/home/grosner/Dropbox/DNALoops/PDBs/A2_open_2HU_78bp_1/");
-	l = loop_parser->parse();
+//	Loop l;
+//	PDBLoopParser* loop_parser;
+//	loop_parser = new PDBLoopParser("/home/grosner/Dropbox/DNALoops/PDBs/A2_open_2HU_78bp_1/");
+//	l = loop_parser->parse();
+//
+//	/*foreach(Entity* e, l.get_atoms()) {
+//		cout << e->get_name() << endl;
+//	}*/
+//
+//	cout << "done" << endl;
 
-	/*foreach(Entity* e, l.get_atoms()) {
-		cout << e->get_name() << endl;
-	}*/
-
-	cout << "done" << endl;
+	test_biomodels();
+	return 0;
 }

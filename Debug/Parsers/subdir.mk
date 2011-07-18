@@ -5,17 +5,14 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Parsers/PDBLoopParser.cpp \
-../Parsers/PDBParser.cpp \
 ../Parsers/X3DNAParser.cpp 
 
 OBJS += \
 ./Parsers/PDBLoopParser.o \
-./Parsers/PDBParser.o \
 ./Parsers/X3DNAParser.o 
 
 CPP_DEPS += \
 ./Parsers/PDBLoopParser.d \
-./Parsers/PDBParser.d \
 ./Parsers/X3DNAParser.d 
 
 

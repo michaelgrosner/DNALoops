@@ -34,6 +34,7 @@ public:
 
 	// Statistics
 	int n_children() const;
+	int n_atoms()    const;
 
 	// Output methods
 	friend ostream &operator<<(ostream &out, const Entity &e);
