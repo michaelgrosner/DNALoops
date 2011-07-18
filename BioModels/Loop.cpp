@@ -11,6 +11,11 @@ Loop::Loop() {
 	is_top = true;
 }
 
+Loop::Loop(string name) {
+	set_name(name);
+	is_top = true;
+}
+
 Loop::~Loop() {
 	// TODO Auto-generated destructor stub
 }

@@ -14,6 +14,7 @@
 class Loop : public Entity {
 public:
 	Loop();
+	Loop(string name);
 	virtual ~Loop();
 
 	friend ostream &operator<<(ostream &out, const Loop &l);

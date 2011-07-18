@@ -7,9 +7,7 @@
 
 #include "Atom.h"
 
-Atom::Atom(string name, double x, double y, double z) : x(x),
-														y(y),
-														z(z) {
+Atom::Atom(string name, double x, double y, double z) : x(x), y(y), z(z) {
 	set_name(name);
 	is_bottom = true;
 }

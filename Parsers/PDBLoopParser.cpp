@@ -34,7 +34,7 @@ Loop PDBLoopParser::parse() {
 
 	if (DEBUG) {
 		foreach (Entity *s, m_loop.get_child_vector()) {
-			cout << "Structure: " << s << endl;
+			cout << "Structure: " << s->get_name() << " " << s->n_children() << endl;
 		}
 	}
 
@@ -59,14 +59,28 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 	// or not a new one needs to be made.
 	int    r_id_prev = 0;
 	string c_id_prev = "";
+	int    s_counter = 0;
+	bool   make_new  = false;
+
+	string atom("ATOM");
+	string ter("TER");
+
 	while( getline(ifs, line) ) {
-		if (boost::starts_with(line, "ATOM")) {
+
+		if (line.empty()) continue;
+
+		if (make_new) {
+			s = new Structure(pdb_filename);
+			make_new = false;
+		}
+
+		if (line.compare(0, atom.length(), atom) == 0) {
 
 			// Information in PDB files follow strict column sizes. This may
 			// not be very robust, but works fine with my PDB files.
 			//int a_id      = atoi(line.substr(6,5).c_str());
 			string a_name = line.substr(13,3);
-			string r_name = line.substr(17,3);
+			string r_name = boost::trim_copy(line.substr(17,3));
 			string c_id   = line.substr(21,1);
 			int r_id      = atoi(line.substr(23,3).c_str());
 
@@ -76,12 +90,12 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 
 			// If an Entity has a different ID than the one before,
 			if (c_id_prev.compare(c_id) != 0) {
-				Chain *c = new Chain(c_id);	// Create a new chain with new ID
+				c = new Chain(c_id);		// Create a new chain with new ID
 				s->add_child(c);			// Attach to parent Entity
 				c_id_prev = c_id;			// Keep track of new ID
 			}
 			if (r_id_prev != r_id) {
-				Residue *r = new Residue(r_name, r_id);
+				r = new Residue(r_name, r_id);
 				c->add_child(r);
 				r_id_prev = r_id;
 			}
@@ -97,16 +111,18 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 		   loaded into the loop, then start a new structure. If the TER is before
 		   the EOF, an empty Structure will be created
 		   TODO: Ensure that the empty structure does not get committed to DB */
-		else if (boost::starts_with("TER", line)) {
-			if (DEBUG) {cout << "Pushing back " << s << endl;}
+		else if (line.compare(0, ter.length(), ter) == 0) {
+			if (DEBUG) {
+				cout << "Pushing back " << s->get_name() << " Size: " << s->get_child_vector().size() << endl;
+			}
 			m_loop.add_child(s);
-			Structure *s = new Structure(pdb_filename);
+			make_new = true;
 		}
 	}
 
 	// If no TER at the EOF, add the structure
-	if (!s->get_child_vector().size() == 0) {
-		if (DEBUG) {cout << "Pushing back " << s << endl;}
+	if ( (s->get_child_vector().size() != 0) && !make_new ) {
+		if (DEBUG) {cout << "Pushing back " << s->get_name() << " Size: " << s->get_child_vector().size() << endl;}
 		m_loop.add_child(s);
 	}
 

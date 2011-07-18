@@ -63,6 +63,7 @@ private:
 
 	// A vector of all the bottom-level atom elements
 	vector<Entity*> atom_vector;
+	vector<Entity*> _sublevels();
 };
 
 #endif /* ENTITY_H_ */

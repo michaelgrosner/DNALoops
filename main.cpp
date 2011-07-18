@@ -30,17 +30,15 @@ int main () {
 
 	db->close();*/
 
-	Loop l;
-	PDBLoopParser* loop_parser;
-	loop_parser = new PDBLoopParser("/home/grosner/Dropbox/DNALoops/PDBs/A2_open_2HU_78bp_1/");
-	l = loop_parser->parse();
+	PDBLoopParser loop_parser("/home/grosner/Dropbox/DNALoops/PDBs/A2_open_2HU_78bp_1/");
 
-	foreach(Entity* e, l.get_atoms()) {
-		cout << "Atom: " << e->get_name() << endl;
-	}
+	Loop l = loop_parser.parse();
+	cout << "Child Structures: " << l.n_children() << endl;
+
+	cout << l.get_atoms().size() << endl;
 
 	cout << "done" << endl;
 
-	test_biomodels();
+	//test_biomodels();
 	return 0;
 }

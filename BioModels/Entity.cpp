@@ -22,6 +22,7 @@ Entity::~Entity() {
 // Setters
 void Entity::add_child(Entity *child) {
 	m_children.push_back(child);
+	child->set_parent(this);
 }
 ;
 
@@ -49,15 +50,35 @@ string Entity::get_name() const {
 
 // Model-Specific getters
 vector<Entity*> Entity::get_atoms() {
-	foreach(Entity *e, get_child_vector())
-				{
-					if (e->is_bottom) {
-						atom_vector.push_back(e);
-					} else {
-						e->get_atoms();
-					}
-				}
+	// Due to data persistence, if this method is called previously, the atoms
+	// will be double-copied
+	if (atom_vector.size() > 0) {
+		atom_vector.erase(atom_vector.begin(), atom_vector.end());
+	}
+
+	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
+	foreach(Entity* e, get_child_vector()) {
+		vector<Entity*> level = e->_sublevels();
+		atom_vector.insert(atom_vector.end(), level.begin(), level.end());
+	}
 	return atom_vector;
+}
+
+vector<Entity*> Entity::_sublevels() {
+	vector<Entity*> av;
+	cout << get_name() << " " << get_child_vector().size() << endl;
+	foreach(Entity* e, get_child_vector()) {
+		if (e->is_bottom) {
+			av.push_back(e);
+		}
+	}
+	foreach(Entity* e, get_child_vector()) {
+		if (!e->is_bottom) {
+			vector<Entity*> level = e->_sublevels();
+			av.insert(atom_vector.end(), level.begin(), level.end());
+		}
+	}
+	return av;
 }
 
 // Statistics
@@ -72,6 +93,6 @@ int Entity::n_atoms() const {
 // Output methods
 // Use the subclass to handle output
 ostream& operator<<(ostream &out, const Entity &e) {
-	out << e.n_atoms() << " in " << e;
+	out << e.get_name();
 	return out;
 }
