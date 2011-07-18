@@ -19,8 +19,8 @@ public:
 	virtual ~Entity();
 
 	// Setters
-	void add_child(Entity child);
-	void set_parent(Entity parent);
+	void add_child(Entity *child);
+	void set_parent(Entity *parent);
 	void set_name(string name);
 
 	// Getters
@@ -30,7 +30,7 @@ public:
 
 	// Model-Specific getters
 	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
-	vector<Entity*> get_atoms(bool at_top);
+	vector<Entity*> get_atoms();
 
 	// Statistics
 	int n_children() const;

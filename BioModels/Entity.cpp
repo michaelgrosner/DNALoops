@@ -20,13 +20,13 @@ Entity::~Entity() {
 }
 
 // Setters
-void Entity::add_child(Entity child) {
-	m_children.push_back(&child);
+void Entity::add_child(Entity *child) {
+	m_children.push_back(child);
 }
 ;
 
-void Entity::set_parent(Entity parent) {
-	m_parent = &parent;
+void Entity::set_parent(Entity *parent) {
+	m_parent = parent;
 }
 ;
 
@@ -48,18 +48,13 @@ string Entity::get_name() const {
 }
 
 // Model-Specific getters
-vector<Entity*> Entity::get_atoms(bool at_top=true) {
-	//Entity* e = get_child_vector()[0];
-
-	if (at_top)
-		atom_vector.erase(atom_vector.begin(), atom_vector.end());
-
+vector<Entity*> Entity::get_atoms() {
 	foreach(Entity *e, get_child_vector())
 				{
 					if (e->is_bottom) {
 						atom_vector.push_back(e);
 					} else {
-						return e->get_atoms(false);
+						e->get_atoms();
 					}
 				}
 	return atom_vector;

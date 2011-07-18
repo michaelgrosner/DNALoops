@@ -51,9 +51,9 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 
 	// Since some of the PDB files may have multiple Structures inside (i.e.
 	// two HUs) seperated by a TER line, need to return multiple Structures
-	Structure s(pdb_filename);
-	Chain     c;
-	Residue   r;
+	Structure *s = new Structure(pdb_filename);
+	Chain     *c = new Chain();
+	Residue   *r = new Residue();
 
 	// Save the previous Residue and Chain PDB IDs to compare and decide whether
 	// or not a new one needs to be made.
@@ -76,19 +76,19 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 
 			// If an Entity has a different ID than the one before,
 			if (c_id_prev.compare(c_id) != 0) {
-				c = Chain(c_id);	// Create a new chain with new ID
-				s.add_child(c);		// Attach to parent Entity
-				c_id_prev = c_id;	// Keep track of new ID
+				Chain *c = new Chain(c_id);	// Create a new chain with new ID
+				s->add_child(c);			// Attach to parent Entity
+				c_id_prev = c_id;			// Keep track of new ID
 			}
 			if (r_id_prev != r_id) {
-				r = Residue(r_name, r_id);
-				c.add_child(r);
+				Residue *r = new Residue(r_name, r_id);
+				c->add_child(r);
 				r_id_prev = r_id;
 			}
 
 			// Every line should contain a new atom, then attach it to a residue
-			Atom a(a_name, x, y, z);
-			r.add_child(a);
+			Atom *a = new Atom(a_name, x, y, z);
+			r->add_child(a);
 
 		}
 
@@ -100,12 +100,12 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 		else if (boost::starts_with("TER", line)) {
 			if (DEBUG) {cout << "Pushing back " << s << endl;}
 			m_loop.add_child(s);
-			s = Structure();
+			Structure *s = new Structure(pdb_filename);
 		}
 	}
 
 	// If no TER at the EOF, add the structure
-	if (!s.get_child_vector().size() == 0) {
+	if (!s->get_child_vector().size() == 0) {
 		if (DEBUG) {cout << "Pushing back " << s << endl;}
 		m_loop.add_child(s);
 	}

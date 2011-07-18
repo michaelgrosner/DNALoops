@@ -14,10 +14,10 @@
 
 #include "boost/foreach.hpp"
 
-Loop test_loopdepth() {
+Loop* test_loopconstruction() {
 	Loop *l = new Loop();
 
-	Structure *s = new Structure();
+	Structure *s = new Structure("S1");
 	l->add_child(s);
 
 	Chain *c = new Chain();
@@ -31,16 +31,32 @@ Loop test_loopdepth() {
 	r->add_child(a1);
 	r->add_child(a2);
 
+	Structure *s2 = new Structure("S2");
+	l->add_child(s2);
+
+	Chain *c2 = new Chain();
+	s->add_child(c2);
+
+	Residue *r2 = new Residue();
+	c->add_child(r2);
+
+	Atom *a12 = new Atom("a1", 1.0, 0.0, 2.0);
+	Atom *a22 = new Atom("a2", 2.0, 1.5, 1.0);
+	r->add_child(a12);
+	r->add_child(a22);
+
 	return l;
 }
 
 void test_biomodels() {
 
-	Loop l = test_loopdepth();
+	Loop *l = test_loopconstruction();
 
-	foreach(Entity *s, l.get_child_vector()) {
-		cout << "Structure: " << s->n_children() << endl;
+	foreach(Entity *s, l->get_child_vector()) {
+		cout << "Structure: " << s << endl;
 	}
+
+	cout << "Number of atoms in Loop: " << l->get_atoms().size() << endl;
 
 	cout << "Completed without error" << endl;
 
