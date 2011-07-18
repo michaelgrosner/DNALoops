@@ -8,10 +8,13 @@
 #include "Entity.h"
 
 Entity::Entity() {
-	// TODO Auto-generated constructor stub
-
+	pk = 0;
 }
 
 Entity::~Entity() {
 	// TODO Auto-generated destructor stub
 }
+
+void Entity::add_child(Entity child) {
+	children.push_back(&child);
+};

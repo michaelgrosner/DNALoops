@@ -9,8 +9,9 @@
 #define ATOM_H_
 
 #include "Includes.h"
+#include "BioModels/Entity.h"
 
-class Atom {
+class Atom : public Entity {
 public:
 	Atom(string name, double x, double y, double z);
 	virtual ~Atom();

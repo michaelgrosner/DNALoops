@@ -8,7 +8,10 @@
 #ifndef STRUCTURE_H_
 #define STRUCTURE_H_
 
-class Structure {
+#include "Includes.h"
+#include "BioModels/Entity.h"
+
+class Structure : public Entity {
 public:
 	Structure();
 	virtual ~Structure();

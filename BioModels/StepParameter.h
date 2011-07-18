@@ -8,7 +8,10 @@
 #ifndef STEPPARAMETER_H_
 #define STEPPARAMETER_H_
 
-class StepParameter {
+#include "Includes.h"
+#include "BioModels/Entity.h"
+
+class StepParameter : public Entity {
 public:
 	StepParameter();
 	virtual ~StepParameter();

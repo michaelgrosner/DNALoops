@@ -7,6 +7,7 @@ CPP_SRCS += \
 ../BioModels/Atom.cpp \
 ../BioModels/BasePair.cpp \
 ../BioModels/Chain.cpp \
+../BioModels/Entity.cpp \
 ../BioModels/Loop.cpp \
 ../BioModels/Residue.cpp \
 ../BioModels/StepParameter.cpp \
@@ -16,6 +17,7 @@ OBJS += \
 ./BioModels/Atom.o \
 ./BioModels/BasePair.o \
 ./BioModels/Chain.o \
+./BioModels/Entity.o \
 ./BioModels/Loop.o \
 ./BioModels/Residue.o \
 ./BioModels/StepParameter.o \
@@ -25,6 +27,7 @@ CPP_DEPS += \
 ./BioModels/Atom.d \
 ./BioModels/BasePair.d \
 ./BioModels/Chain.d \
+./BioModels/Entity.d \
 ./BioModels/Loop.d \
 ./BioModels/Residue.d \
 ./BioModels/StepParameter.d \

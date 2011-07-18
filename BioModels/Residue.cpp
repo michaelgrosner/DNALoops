@@ -7,10 +7,9 @@
 
 #include "Residue.h"
 
-Residue::Residue() {
-	// TODO Auto-generated constructor stub
+Residue::Residue() {}
 
-}
+Residue::Residue(string name, int position) : name(name), position(position) {}
 
 Residue::~Residue() {
 	// TODO Auto-generated destructor stub

@@ -9,14 +9,19 @@
 #define RESIDUE_H_
 
 #include "Includes.h"
+#include "BioModels/Entity.h"
 
-class Residue {
+class Residue : public Entity {
 public:
 	Residue();
+	Residue(string name, int position);
 	virtual ~Residue();
 
 private:
 	string name;
+	int position;
+
+	int pk;
 
 };
 

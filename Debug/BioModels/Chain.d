@@ -1,4 +1,10 @@
 BioModels/Chain.d BioModels/Chain.o: ../BioModels/Chain.cpp \
- ../BioModels/Chain.h
+ ../BioModels/Chain.h \
+ /net/actin/u1/home/grosner/Dropbox/DNALoopsC/Includes.h \
+ /net/actin/u1/home/grosner/Dropbox/DNALoopsC/BioModels/Entity.h
 
 ../BioModels/Chain.h:
+
+/net/actin/u1/home/grosner/Dropbox/DNALoopsC/Includes.h:
+
+/net/actin/u1/home/grosner/Dropbox/DNALoopsC/BioModels/Entity.h:

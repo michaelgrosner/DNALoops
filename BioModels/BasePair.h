@@ -8,7 +8,10 @@
 #ifndef BASEPAIR_H_
 #define BASEPAIR_H_
 
-class BasePair {
+#include "Includes.h"
+#include "BioModels/Entity.h"
+
+class BasePair : public Entity {
 public:
 	BasePair();
 	virtual ~BasePair();

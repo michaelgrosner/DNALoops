@@ -40,7 +40,7 @@ void PDBParser::parse() {
 			double z = atof(line.substr(46,7).c_str());
 
 			Atom a(name, x, y, z);
-			cout << a << endl;
+			//cout << a << endl;
 		}
 		else if (boost::starts_with("TER", line)) {
 

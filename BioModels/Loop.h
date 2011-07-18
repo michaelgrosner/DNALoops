@@ -8,7 +8,10 @@
 #ifndef LOOP_H_
 #define LOOP_H_
 
-class Loop {
+#include "Includes.h"
+#include "BioModels/Entity.h"
+
+class Loop : public Entity {
 public:
 	Loop();
 	virtual ~Loop();

@@ -56,10 +56,11 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Parsers"/>
+						<entry excluding="PDB" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Database"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels"/>
 						<entry excluding="Parsers|Database|BioModels" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Parsers"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels/PDB"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -525,10 +526,11 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Database"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Parsers"/>
+						<entry excluding="PDB" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Database"/>
 						<entry excluding="Parsers|Database|BioModels" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BioModels/PDB"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

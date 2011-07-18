@@ -8,7 +8,10 @@
 #ifndef CHAIN_H_
 #define CHAIN_H_
 
-class Chain {
+#include "Includes.h"
+#include "BioModels/Entity.h"
+
+class Chain : public Entity {
 public:
 	Chain();
 	virtual ~Chain();

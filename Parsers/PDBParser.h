@@ -16,10 +16,13 @@
 #include <boost/foreach.hpp>
 #include <fstream>
 #include <sstream>
+
+#include "BioModels/Entity.h"
 #include "BioModels/Atom.h"
 #include "BioModels/Residue.h"
 #include "BioModels/Chain.h"
 #include "BioModels/Structure.h"
+#include "BioModels/Loop.h"
 
 class PDBParser {
 public:
