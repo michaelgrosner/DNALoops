@@ -70,9 +70,13 @@ int Entity::n_children() const {
 	return m_children.size();
 }
 
+int Entity::n_atoms() const {
+	return 1;//get_atoms().size();
+}
+
 // Output methods
 // Use the subclass to handle output
 ostream& operator<<(ostream &out, const Entity &e) {
-	out << e;
+	out << e.n_atoms() << " in " << e;
 	return out;
 }

@@ -7,11 +7,17 @@
 
 #include "Structure.h"
 
-Structure::Structure() {
-	// TODO Auto-generated constructor stub
+Structure::Structure() {}
 
+Structure::Structure(string name) {
+	set_name(name);
 }
 
 Structure::~Structure() {
 	// TODO Auto-generated destructor stub
+}
+
+ostream& operator<< (ostream &out, const Structure &s) {
+	out << "<Structure: " << s.get_name() << " with " << s.n_children() << " chains>";
+	return out;
 }

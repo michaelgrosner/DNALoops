@@ -13,8 +13,13 @@
 
 class Structure : public Entity {
 public:
+
+	// Construction and destruction
 	Structure();
+	Structure(string name);
 	virtual ~Structure();
+
+	friend ostream &operator<<(ostream &out, const Structure &s);
 };
 
 #endif /* STRUCTURE_H_ */
