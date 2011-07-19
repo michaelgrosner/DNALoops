@@ -8,10 +8,16 @@
 #ifndef X3DNAPARSER_H_
 #define X3DNAPARSER_H_
 
+#include "Includes.h"
+#include "BioModels/Entity.h"
+#include "BioModels/Loop.h"
+
 class X3DNAParser {
 public:
-	X3DNAParser();
+	X3DNAParser(Loop &l);
 	virtual ~X3DNAParser();
+private:
+	Loop m_loop;
 };
 
 #endif /* X3DNAPARSER_H_ */

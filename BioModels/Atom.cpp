@@ -38,8 +38,6 @@ void Atom::as_pdb(int &chain_count, int &residue_count, int &atom_count,
 			get_parent()->get_name().c_str(), chain_name, residue_count, x, y,
 			z);
 
-	cout << buffer;
 	pdbfile << buffer;
 
-	//cout << atom_count << " " << chain_count << " " << residue_count << " " << get_name() << endl;
 }

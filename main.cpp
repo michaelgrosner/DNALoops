@@ -37,9 +37,10 @@ int main () {
 	cout << "Child Structures: " << l.n_children() << endl;
 
 	vector<Entity*> atoms;
-	l.get_atoms(atoms);
-	l.write_pdb("test.pdb");
-	//cout << atoms.size() << endl;
+	//l.get_atoms(atoms);
+	l.run_x3dna();
+
+	X3DNAParser x3dna_parser(l);
 
 	cout << "done" << endl;
 

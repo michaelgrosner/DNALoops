@@ -15,7 +15,8 @@
 using namespace std;
 
 // BOOST_FOREACH in all caps is ugly.
-#define foreach         BOOST_FOREACH
-#define DEBUG			true
+#define foreach          BOOST_FOREACH
+#define DEBUG			 true
+#define X3DNA_TEMP_PATH "x3dna_temp/"
 
 #endif /* INCLUDES_H_ */

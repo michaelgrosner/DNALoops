@@ -10,6 +10,11 @@
 
 #include "Includes.h"
 #include "boost/foreach.hpp"
+#include "boost/filesystem.hpp"
+#include "boost/format.hpp"
+#include <unistd.h>
+#include "stdlib.h"						// For system() calls
+using namespace boost::filesystem;
 
 class Entity {
 public:
@@ -43,6 +48,8 @@ public:
 	// directly, always use the pure to_pdb() method to generate PDB files!
 	void           write_pdb(string filelocation);
 	virtual void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
+
+	void run_x3dna();
 
 	bool is_bottom;
 	bool is_top;
