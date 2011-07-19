@@ -10,7 +10,6 @@
 
 #include "Includes.h"
 #include "BioModels/Entity.h"
-#include "stdio.h"						// For sprintf in the to_pdb() only
 
 class Atom : public Entity {
 public:
@@ -22,6 +21,8 @@ public:
 
 	friend ostream &operator<<(ostream &out, const Atom &a);
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+
+	string class_name() {return "Atom";};
 
 	bool is_CA();
 

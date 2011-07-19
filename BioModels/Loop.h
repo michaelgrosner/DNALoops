@@ -21,6 +21,7 @@ public:
 
 	// TODO: Change this to either stdout or to a file.
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+	string class_name() {return "Loop";};
 };
 
 #endif /* LOOP_H_ */

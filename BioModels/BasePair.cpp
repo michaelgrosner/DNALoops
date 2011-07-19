@@ -17,14 +17,13 @@ BasePairEntity::~BasePairEntity() {
 }
 
 BasePairEntity::BasePairEntity(const vector<int>& pairing, const int& position,
-		const string& bp1, const string& bp2, const CoordinateSystem& coords,
-		Loop& l) :
-	BasePair(coords), strand_position(position), base1(bp1), base2(bp2) {
+		const CoordinateSystem& coords, Loop& l) :
+	BasePair(coords), strand_position(position) {
 
 	foreach(int bp_id, pairing)
 				{
 					vector<Entity*> loop_residues;
-					l.get_residues(loop_residues);
+					l.get_sub_entities("Residue", loop_residues);
 					add_child(loop_residues[bp_id]);
 				}
 

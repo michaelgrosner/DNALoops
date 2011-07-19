@@ -28,6 +28,7 @@ public:
 
 	// Output
 	friend ostream &operator<<(ostream &out, const Residue &r);
+	string class_name() {return "Residue";};
 
 private:
 	int position;

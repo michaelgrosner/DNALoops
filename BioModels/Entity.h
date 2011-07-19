@@ -12,8 +12,7 @@
 #include "boost/foreach.hpp"
 #include "boost/filesystem.hpp"
 #include "boost/format.hpp"
-#include <unistd.h>
-#include "stdlib.h"						// For system() calls
+
 using namespace boost::filesystem;
 
 class Entity {
@@ -35,12 +34,12 @@ public:
 
 	// Model-Specific getters
 	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
-	void get_atoms(vector<Entity*> &atoms);
-	void get_residues(vector<Entity*> &residues);
+	void get_sub_entities(string of_type, vector<Entity*> &entities);
+	vector<Entity*> get_CAs();
 
 	// Statistics
 	int n_children() const;
-	int n_atoms()    const;
+	int n_atoms();
 
 	// Output methods
 	friend ostream &operator<<(ostream &out, const Entity &e);
@@ -49,6 +48,10 @@ public:
 	// directly, always use the pure to_pdb() method to generate PDB files!
 	void           write_pdb(string filelocation);
 	virtual void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
+
+	// Due to circular dependency issues, the only way I'm able to check for class
+	// type is via a virtual function returning the name of the model.
+	virtual string class_name() {};
 
 	// Operator Methods
 	// Get i'th child
@@ -66,7 +69,7 @@ private:
 	// is left to zero.
 	int pk;
 
-	// Integer ID denoting this Entity for the DB
+	// Integer ID denoting this Entity for the DB -- NOT position!
 	int id;
 
 	// A human readable name of the Entity. Defaults to empty string
@@ -78,8 +81,6 @@ private:
 	// The parent reference
 	Entity* m_parent;
 
-	// A vector of all the bottom-level atom elements
-	vector<Entity*> atom_vector;
 };
 
 #endif /* ENTITY_H_ */

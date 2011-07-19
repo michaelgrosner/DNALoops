@@ -10,8 +10,7 @@
 
 #include "Includes.h"
 
-#include <fstream>
-#include <sstream>
+
 
 #include "BioModels/Entity.h"
 #include "BioModels/Loop.h"
@@ -28,6 +27,7 @@ public:
 
 	vector<vector<int> > read_inp_file();
 	void get_ref_frames();
+	void get_bp_steps();
 
 private:
 	Loop m_loop;

@@ -8,12 +8,26 @@
 #ifndef INCLUDES_H_
 #define INCLUDES_H_
 
+// Providing many simulation tools
 #include <DNASim.h>
 
+// Database connection
+#include <sqlite3.h>
+
+// STL stuff probably declared in DNASim anyways.
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
+#include <exception>
+#include <unistd.h>
+#include <assert.h>
+#include <glob.h>
+#include <sstream>
+
+// C stuff. Just because I need them.
+#include "stdlib.h"
+#include "stdio.h"
 using namespace std;
 
 // BOOST_FOREACH in all caps is ugly.

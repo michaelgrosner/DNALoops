@@ -7,9 +7,8 @@
 
 #include "StepParameter.h"
 
-StepParameterEntity::StepParameterEntity() {
-	// TODO Auto-generated constructor stub
-
+StepParameterEntity::StepParameterEntity(const string& sp, Loop &l, const int& p) : StepParameters(sp), strand_position(p) {
+	l.add_child(this);
 }
 
 StepParameterEntity::~StepParameterEntity() {

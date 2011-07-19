@@ -1,5 +1,4 @@
 main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
- ../Parsers/PDBLoopParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/DNASim.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/DNASim_Includes.h \
@@ -259,6 +258,7 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ ../Parsers/PDBLoopParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
@@ -271,8 +271,6 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  ../BioModels/Entity.h ../Tests/test_biomodels.h
 
 ../Database/SQLiteDB.h:
-
-../Parsers/PDBLoopParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h:
 
@@ -791,6 +789,8 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h:
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
+
+../Parsers/PDBLoopParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 

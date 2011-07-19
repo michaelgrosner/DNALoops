@@ -11,7 +11,6 @@
 #include "Includes.h"
 #include "BioModels/Entity.h"
 #include "BioModels/Loop.h"
-#include <assert.h>
 
 class BasePairEntity: public Entity, public BasePair {
 public:
@@ -22,21 +21,17 @@ public:
 	BasePairEntity();
 	virtual ~BasePairEntity();
 
-	BasePairEntity(const vector<int>& pairing, const int& position, const string& bp1,
-			const string& bp2, const CoordinateSystem& coords, Loop& l);
+	BasePairEntity(const vector<int>& pairing, const int& position, const CoordinateSystem& coords, Loop& l);
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count,
 			ofstream &pdbfile) {}
+	string class_name() {return "BasePair";};
 
 	// Output methods
 	friend ostream &operator<<(ostream &out, const BasePairEntity &bp);
 
 private:
 	int strand_position;
-
-	string base1;
-	string base2;
-
 };
 
 #endif /* BASEPAIR_H_ */

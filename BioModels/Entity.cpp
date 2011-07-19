@@ -28,7 +28,9 @@ void Entity::add_child(Entity *child) {
 
 void Entity::set_parent(Entity *parent) {
 	m_parent = parent;
-	parent->add_child(this);
+
+	//TODO: Fix this!!!!
+	//parent->add_child(this);
 }
 ;
 
@@ -50,26 +52,29 @@ string Entity::get_name() const {
 }
 
 // Model-Specific getters
-void Entity::get_atoms(vector<Entity*> &atoms) {
+void Entity::get_sub_entities(string of_type, vector<Entity*> &entities) {
 	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
 	foreach(Entity* e, get_child_vector()) {
-		if (e->is_bottom) {
-			atoms.push_back(e);
+		if (e->class_name() == of_type) {
+			entities.push_back(e);
 		} else {
-			e->get_atoms(atoms);
+			e->get_sub_entities(of_type, entities);
 		};
 	}
 }
 
-void Entity::get_residues(vector<Entity*> &residues) {
-	// Recursive tree algorithm to find the Residues, all with children tagged with is_bottom.
-	foreach(Entity* e, get_child_vector()) {
-		if (e->get_child_vector()[0]->is_bottom) {
-			residues.push_back(e);
-		} else {
-			e->get_residues(residues);
-		};
+vector<Entity*> Entity::get_CAs() {
+	vector<Entity*> entities;
+	get_sub_entities("Atom", entities);
+
+	vector<Entity*> CAs;
+	foreach(Entity* e, entities) {
+		if (e->is_CA()) {
+			CAs.push_back(e);
+		}
 	}
+
+	return CAs;
 }
 
 // Statistics
@@ -77,8 +82,10 @@ int Entity::n_children() const {
 	return m_children.size();
 }
 
-int Entity::n_atoms() const {
-	return 1;//get_atoms().size();
+int Entity::n_atoms() {
+	vector<Entity*> entities;
+	get_sub_entities("Atom", entities);
+	return entities.size();
 }
 
 // Output methods

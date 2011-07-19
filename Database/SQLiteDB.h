@@ -8,10 +8,8 @@
 #ifndef SQLITEDB_H_
 #define SQLITEDB_H_
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include <sqlite3.h>
+#include "Includes.h"
+
 using namespace std;
 
 class SQLiteDB {

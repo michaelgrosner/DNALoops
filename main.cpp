@@ -34,14 +34,12 @@ int main () {
 	PDBLoopParser loop_parser("PDBs/A2_open_2HU_78bp_1/");
 
 	Loop l = loop_parser.parse();
-	cout << "Child Structures: " << l.n_children() << endl;
+	cout << l << endl;
 
-	vector<Entity*> atoms;
-	//l.get_atoms(atoms);
 	//l.run_x3dna();
 
 	X3DNAParser x3dna_parser(l);
-	x3dna_parser.get_ref_frames();
+	x3dna_parser.get_bp_steps();
 
 	cout << "done" << endl;
 

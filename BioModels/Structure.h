@@ -28,6 +28,9 @@ public:
 	friend ostream &operator<<(ostream &out, const Structure &s);
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+
+	string class_name() {return "Structure";};
+
 private:
 	bool m_is_ideal;
 };
