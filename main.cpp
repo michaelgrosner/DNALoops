@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Database/SQLiteDB.h"
 #include "Parsers/PDBLoopParser.h"
+#include "BioModels/Entity.h"
 #include "Tests/test_biomodels.h"
 using namespace std;
 
@@ -35,7 +36,10 @@ int main () {
 	Loop l = loop_parser.parse();
 	cout << "Child Structures: " << l.n_children() << endl;
 
-	cout << l.get_atoms().size() << endl;
+	vector<Entity*> atoms;
+	l.get_atoms(atoms);
+	l.print_pdb();
+	//cout << atoms.size() << endl;
 
 	cout << "done" << endl;
 

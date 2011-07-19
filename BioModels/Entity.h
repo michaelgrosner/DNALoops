@@ -30,7 +30,7 @@ public:
 
 	// Model-Specific getters
 	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
-	vector<Entity*> get_atoms();
+	void get_atoms(vector<Entity*> &atoms);
 
 	// Statistics
 	int n_children() const;

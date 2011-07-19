@@ -7,7 +7,7 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
- ../Tests/test_biomodels.h
+ ../BioModels/Entity.h ../Tests/test_biomodels.h
 
 ../Database/SQLiteDB.h:
 
@@ -26,5 +26,7 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
+
+../BioModels/Entity.h:
 
 ../Tests/test_biomodels.h:

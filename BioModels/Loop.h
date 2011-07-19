@@ -18,6 +18,9 @@ public:
 	virtual ~Loop();
 
 	friend ostream &operator<<(ostream &out, const Loop &l);
+
+	// TODO: Change this to either stdout or to a file.
+	void print_pdb();
 };
 
 #endif /* LOOP_H_ */

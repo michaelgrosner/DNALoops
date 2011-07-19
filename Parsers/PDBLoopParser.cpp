@@ -59,7 +59,6 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 	// or not a new one needs to be made.
 	int    r_id_prev = 0;
 	string c_id_prev = "";
-	int    s_counter = 0;
 	bool   make_new  = false;
 
 	string atom("ATOM");

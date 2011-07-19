@@ -24,7 +24,7 @@ void Entity::add_child(Entity *child) {
 	m_children.push_back(child);
 	child->set_parent(this);
 }
-;
+
 
 void Entity::set_parent(Entity *parent) {
 	m_parent = parent;
@@ -49,20 +49,20 @@ string Entity::get_name() const {
 }
 
 // Model-Specific getters
-vector<Entity*> Entity::get_atoms() {
-	// Due to data persistence, if this method is called previously, the atoms
-	// will be double-copied
-	if (atom_vector.size() > 0) {
-		atom_vector.erase(atom_vector.begin(), atom_vector.end());
-	}
-
-	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
-	foreach(Entity* e, get_child_vector()) {
-		vector<Entity*> level = e->_sublevels();
-		atom_vector.insert(atom_vector.end(), level.begin(), level.end());
-	}
-	return atom_vector;
-}
+//vector<Entity*> Entity::get_atoms() {
+//	// Due to data persistence, if this method is called previously, the atoms
+//	// will be double-copied
+//	if (atom_vector.size() > 0) {
+//		atom_vector.erase(atom_vector.begin(), atom_vector.end());
+//	}
+//
+//	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
+//	foreach(Entity* e, get_child_vector()) {
+//		vector<Entity*> level = e->_sublevels();
+//		atom_vector.insert(atom_vector.end(), level.begin(), level.end());
+//	}
+//	return atom_vector;
+//}
 
 vector<Entity*> Entity::_sublevels() {
 	vector<Entity*> av;
@@ -70,15 +70,23 @@ vector<Entity*> Entity::_sublevels() {
 	foreach(Entity* e, get_child_vector()) {
 		if (e->is_bottom) {
 			av.push_back(e);
-		}
-	}
-	foreach(Entity* e, get_child_vector()) {
-		if (!e->is_bottom) {
-			vector<Entity*> level = e->_sublevels();
-			av.insert(atom_vector.end(), level.begin(), level.end());
+		} else {
+			e->_sublevels();
 		}
 	}
 	return av;
+}
+
+void Entity::get_atoms(vector<Entity*> &atoms) {
+	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
+	foreach(Entity* e, get_child_vector()) {
+		if (e->is_bottom) {
+			atoms.push_back(e);
+			//cout << e->get_name() << endl;
+		} else {
+			e->get_atoms(atoms);
+		};
+	}
 }
 
 // Statistics

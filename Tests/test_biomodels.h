@@ -56,13 +56,13 @@ void test_biomodels() {
 		cout << "Structure: " << s->get_name() << endl;
 	}
 
-	cout << "Number of atoms in Loop: " << l->get_atoms().size() << endl;
-
-	int i=0;
-	foreach(Entity *e, l->get_atoms()) {
-		cout << e->get_name() << " " << i <<endl;
-		i++;
-	}
+//	cout << "Number of atoms in Loop: " << l->get_atoms().size() << endl;
+//
+//	int i=0;
+//	foreach(Entity *e, l->get_atoms()) {
+//		cout << e->get_name() << " " << i <<endl;
+//		i++;
+//	}
 
 	cout << "Completed without error" << endl;
 
