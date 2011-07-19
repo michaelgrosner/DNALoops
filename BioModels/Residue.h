@@ -10,6 +10,7 @@
 
 #include "Includes.h"
 #include "BioModels/Entity.h"
+#include <boost/algorithm/string.hpp>
 
 class Residue : public Entity {
 public:
@@ -17,9 +18,16 @@ public:
 	Residue(string name, int position);
 	virtual ~Residue();
 
-	friend ostream &operator<<(ostream &out, const Residue &r);
-
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+
+	// Return true if the residue is a nucleic acid
+	bool is_na();
+
+	// Return true if the residue is an amino acid
+	bool is_aa();
+
+	// Output
+	friend ostream &operator<<(ostream &out, const Residue &r);
 
 private:
 	int position;

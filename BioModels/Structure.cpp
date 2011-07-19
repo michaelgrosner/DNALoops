@@ -7,7 +7,9 @@
 
 #include "Structure.h"
 
-Structure::Structure() {}
+Structure::Structure() {
+	m_is_ideal = false;
+}
 
 Structure::Structure(string name) {
 	set_name(name);

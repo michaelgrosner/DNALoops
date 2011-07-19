@@ -46,7 +46,7 @@ all: DNALoops
 DNALoops: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o"DNALoops" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/net/actin/u1/home/grosner/lib/DNASim/lib -o"DNALoops" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

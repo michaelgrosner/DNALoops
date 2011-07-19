@@ -28,6 +28,7 @@ void Entity::add_child(Entity *child) {
 
 void Entity::set_parent(Entity *parent) {
 	m_parent = parent;
+	parent->add_child(this);
 }
 ;
 
@@ -36,7 +37,7 @@ void Entity::set_name(string name) {
 }
 
 // Getters
-vector<Entity*> Entity::get_child_vector() {
+vector<Entity*> Entity::get_child_vector() const {
 	return m_children;
 }
 
@@ -60,6 +61,17 @@ void Entity::get_atoms(vector<Entity*> &atoms) {
 	}
 }
 
+void Entity::get_residues(vector<Entity*> &residues) {
+	// Recursive tree algorithm to find the Residues, all with children tagged with is_bottom.
+	foreach(Entity* e, get_child_vector()) {
+		if (e->get_child_vector()[0]->is_bottom) {
+			residues.push_back(e);
+		} else {
+			e->get_residues(residues);
+		};
+	}
+}
+
 // Statistics
 int Entity::n_children() const {
 	return m_children.size();
@@ -75,6 +87,10 @@ ostream& operator<<(ostream &out, const Entity &e) {
 	out << e.get_name();
 	return out;
 }
+
+/*Entity operator[](int i) {
+	return get_child_vector()[i];
+}*/
 
 // TODO: Make use of the Boost filesystem for this
 void Entity::write_pdb(string filelocation) {
@@ -111,15 +127,16 @@ void Entity::run_x3dna() {
 		if (DEBUG) cout << "misc_3nda found" << endl;
 	}
 	else {
-		char *cmd = (boost::format("cp misc_3dna.par %s") % x3dna_temp).str().c_str();
-		system(cmd)
+		/*char *cmd = (boost::format("cp misc_3dna.par %s") % x3dna_temp).str().c_str();
+		system(cmd);*/
 	}
 
 	// TODO: Check that 3dna programs are on the $PATH
 
 	if (DEBUG) cout << (boost::format("cd %s") % x3dna_temp).str().c_str() << endl;
+
+	// TODO: ret is the chdir status code, -1 meaning an error. Handle later.
 	int ret = chdir(x3dna_temp.string().c_str());
-	cout << ret << endl;
 	if (DEBUG) cout << (boost::format("find_pair %s %s%s") % pdbfilename % pdbfilename % ".inp").str().c_str() << endl;
 	system((boost::format("find_pair %s %s%s") % pdbfilename % pdbfilename % ".inp").str().c_str());
 	if (DEBUG) cout << (boost::format("analyze %s%s") % pdbfilename % ".inp").str().c_str() << endl;

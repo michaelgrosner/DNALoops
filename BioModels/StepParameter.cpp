@@ -7,11 +7,11 @@
 
 #include "StepParameter.h"
 
-StepParameter::StepParameter() {
+StepParameterEntity::StepParameterEntity() {
 	// TODO Auto-generated constructor stub
 
 }
 
-StepParameter::~StepParameter() {
+StepParameterEntity::~StepParameterEntity() {
 	// TODO Auto-generated destructor stub
 }

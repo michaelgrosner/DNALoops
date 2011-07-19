@@ -29,13 +29,14 @@ public:
 	void set_name(string name);
 
 	// Getters
-	vector<Entity*> get_child_vector();
+	vector<Entity*> get_child_vector() const;
 	Entity*         get_parent();
 	string			get_name() const;
 
 	// Model-Specific getters
 	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
 	void get_atoms(vector<Entity*> &atoms);
+	void get_residues(vector<Entity*> &residues);
 
 	// Statistics
 	int n_children() const;
@@ -49,10 +50,14 @@ public:
 	void           write_pdb(string filelocation);
 	virtual void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
 
+	// Operator Methods
+	// Get i'th child
+	//Entity operator[](int i);
+
 	void run_x3dna();
 
-	bool is_bottom;
-	bool is_top;
+	bool   is_bottom;
+	bool   is_top;
 
 private:
 
@@ -61,7 +66,7 @@ private:
 	// is left to zero.
 	int pk;
 
-	// Integer ID denoting this eEtity for the DB
+	// Integer ID denoting this Entity for the DB
 	int id;
 
 	// A human readable name of the Entity. Defaults to empty string

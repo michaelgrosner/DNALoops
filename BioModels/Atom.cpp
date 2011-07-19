@@ -7,6 +7,9 @@
 
 #include "Atom.h"
 
+// Initialize empty atom.
+Atom::Atom () {}
+
 Atom::Atom(string name, double x, double y, double z) :
 	x(x), y(y), z(z) {
 	set_name(name);
@@ -40,4 +43,9 @@ void Atom::as_pdb(int &chain_count, int &residue_count, int &atom_count,
 
 	pdbfile << buffer;
 
+}
+
+bool Atom::is_CA() {
+	if (get_name() == "CA") return true;
+	else return false;
 }

@@ -19,9 +19,17 @@ public:
 	Structure(string name);
 	virtual ~Structure();
 
+	// Getters
+	bool is_ideal() {return m_is_ideal;};
+
+	// Setters
+	void set_ideal() {m_is_ideal = true;};
+
 	friend ostream &operator<<(ostream &out, const Structure &s);
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+private:
+	bool m_is_ideal;
 };
 
 #endif /* STRUCTURE_H_ */

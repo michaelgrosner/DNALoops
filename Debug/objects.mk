@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lboost_filesystem -lsqlite3 -lboost_system -lboost_iostreams
+LIBS := -lboost_filesystem -lboost_regex -lDNASim -lsqlite3 -lboost_system -lboost_iostreams
 

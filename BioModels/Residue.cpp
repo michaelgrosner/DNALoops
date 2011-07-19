@@ -28,3 +28,13 @@ void Residue::as_pdb(int &chain_count, int &residue_count, int &atom_count, ofst
 		ae->as_pdb(chain_count, residue_count, atom_count, pdbfile);
 	}
 }
+
+bool Residue::is_na() {
+	if (boost::trim_copy(get_name()).length() == 1) return true;
+	else return false;
+}
+
+bool Residue::is_aa() {
+	if (is_na()) return false;
+	else return true;
+}

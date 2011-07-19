@@ -15,12 +15,15 @@
 class Atom : public Entity {
 public:
 	Atom(string name, double x, double y, double z);
+	Atom();
 	virtual ~Atom();
 
 	void set_residue_pk(int fk);
 
 	friend ostream &operator<<(ostream &out, const Atom &a);
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
+
+	bool is_CA();
 
 private:
 	double x;

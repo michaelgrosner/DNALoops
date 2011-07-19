@@ -11,10 +11,10 @@
 #include "Includes.h"
 #include "BioModels/Entity.h"
 
-class StepParameter : public Entity {
+class StepParameterEntity : public Entity, public StepParameters {
 public:
-	StepParameter();
-	virtual ~StepParameter();
+	StepParameterEntity();
+	virtual ~StepParameterEntity();
 
 	void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
 };

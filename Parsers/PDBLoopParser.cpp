@@ -54,6 +54,7 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 	Structure *s = new Structure(pdb_filename);
 	Chain     *c = new Chain();
 	Residue   *r = new Residue();
+	Atom      *a = new Atom();
 
 	// Save the previous Residue and Chain PDB IDs to compare and decide whether
 	// or not a new one needs to be made.
@@ -100,7 +101,7 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 			}
 
 			// Every line should contain a new atom, then attach it to a residue
-			Atom *a = new Atom(a_name, x, y, z);
+			a = new Atom(a_name, x, y, z);
 			r->add_child(a);
 
 		}

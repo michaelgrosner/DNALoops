@@ -8,6 +8,8 @@
 #ifndef INCLUDES_H_
 #define INCLUDES_H_
 
+#include <DNASim.h>
+
 #include <iostream>
 #include <string>
 #include <vector>
