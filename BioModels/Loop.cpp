@@ -24,34 +24,10 @@ Loop::~Loop() {
 	// TODO Auto-generated destructor stub
 }
 
-void Loop::print_pdb() {
-	int structure_count = 0;
-	int chain_count     = 0;
-	int residue_count   = 0;
-	int atom_count      = 0;
-
+void Loop::as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {
 	foreach(Entity *le, get_child_vector()) {
-		structure_count += 1;
-		Structure *s = dynamic_cast<Structure*>(le);
-
-		foreach(Entity *ce, le->get_child_vector()) {
-			chain_count += 1;
-			Chain *c = dynamic_cast<Chain*>(ce);
-
-			foreach(Entity *cr, ce->get_child_vector()) {
-				residue_count += 1;
-				Residue *r = dynamic_cast<Residue*>(cr);
-
-				foreach(Entity *ae, cr->get_child_vector()) {
-					atom_count += 1;
-					Atom *a = dynamic_cast<Atom*>(ae);
-					cout << structure_count << " " << chain_count << " " << residue_count << " " << a->get_name() << endl;
-				}
-
-			}
-
-		}
-
+		le->as_pdb(chain_count, residue_count, atom_count, pdbfile);
+		pdbfile << "TER\n";
 	}
 }
 

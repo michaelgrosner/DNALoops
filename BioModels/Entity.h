@@ -39,6 +39,11 @@ public:
 	// Output methods
 	friend ostream &operator<<(ostream &out, const Entity &e);
 
+	// To handle default arguments and make things prettier, never call this
+	// directly, always use the pure to_pdb() method to generate PDB files!
+	void           write_pdb(string filelocation);
+	virtual void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
+
 	bool is_bottom;
 	bool is_top;
 
@@ -63,7 +68,6 @@ private:
 
 	// A vector of all the bottom-level atom elements
 	vector<Entity*> atom_vector;
-	vector<Entity*> _sublevels();
 };
 
 #endif /* ENTITY_H_ */

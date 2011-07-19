@@ -15,6 +15,8 @@ class BasePair : public Entity {
 public:
 	BasePair();
 	virtual ~BasePair();
+
+	void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
 };
 
 #endif /* BASEPAIR_H_ */

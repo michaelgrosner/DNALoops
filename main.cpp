@@ -38,7 +38,7 @@ int main () {
 
 	vector<Entity*> atoms;
 	l.get_atoms(atoms);
-	l.print_pdb();
+	l.write_pdb("test.pdb");
 	//cout << atoms.size() << endl;
 
 	cout << "done" << endl;

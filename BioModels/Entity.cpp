@@ -49,40 +49,11 @@ string Entity::get_name() const {
 }
 
 // Model-Specific getters
-//vector<Entity*> Entity::get_atoms() {
-//	// Due to data persistence, if this method is called previously, the atoms
-//	// will be double-copied
-//	if (atom_vector.size() > 0) {
-//		atom_vector.erase(atom_vector.begin(), atom_vector.end());
-//	}
-//
-//	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
-//	foreach(Entity* e, get_child_vector()) {
-//		vector<Entity*> level = e->_sublevels();
-//		atom_vector.insert(atom_vector.end(), level.begin(), level.end());
-//	}
-//	return atom_vector;
-//}
-
-vector<Entity*> Entity::_sublevels() {
-	vector<Entity*> av;
-	cout << get_name() << " " << get_child_vector().size() << endl;
-	foreach(Entity* e, get_child_vector()) {
-		if (e->is_bottom) {
-			av.push_back(e);
-		} else {
-			e->_sublevels();
-		}
-	}
-	return av;
-}
-
 void Entity::get_atoms(vector<Entity*> &atoms) {
 	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
 	foreach(Entity* e, get_child_vector()) {
 		if (e->is_bottom) {
 			atoms.push_back(e);
-			//cout << e->get_name() << endl;
 		} else {
 			e->get_atoms(atoms);
 		};
@@ -103,4 +74,18 @@ int Entity::n_atoms() const {
 ostream& operator<<(ostream &out, const Entity &e) {
 	out << e.get_name();
 	return out;
+}
+
+void Entity::write_pdb(string filelocation) {
+
+	// Not sure why, but ofstream requires a c_str here...
+	ofstream pdbfile(filelocation.c_str(), ofstream::out);
+
+	int atom_count = 1;
+	int chain_count = 1;
+	int residue_count = 1;
+
+	as_pdb(chain_count, residue_count, atom_count, pdbfile);
+
+	pdbfile.close();
 }

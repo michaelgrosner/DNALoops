@@ -15,6 +15,8 @@ class StepParameter : public Entity {
 public:
 	StepParameter();
 	virtual ~StepParameter();
+
+	void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
 };
 
 #endif /* STEPPARAMETER_H_ */

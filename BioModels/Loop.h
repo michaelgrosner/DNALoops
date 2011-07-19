@@ -20,7 +20,7 @@ public:
 	friend ostream &operator<<(ostream &out, const Loop &l);
 
 	// TODO: Change this to either stdout or to a file.
-	void print_pdb();
+	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 };
 
 #endif /* LOOP_H_ */

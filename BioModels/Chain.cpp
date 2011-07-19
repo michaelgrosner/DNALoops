@@ -20,3 +20,10 @@ ostream& operator<< (ostream &out, const Chain &c) {
 	out << "<Chain " << c.get_name() << " with " << c.n_children() << " residues>";
 	return out;
 }
+
+void Chain::as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {
+	foreach(Entity *cr, get_child_vector()) {
+		residue_count += 1;
+		cr->as_pdb(chain_count, residue_count, atom_count, pdbfile);
+	}
+}
