@@ -2,7 +2,7 @@
  * Residue.h
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef RESIDUE_H_
@@ -29,6 +29,8 @@ public:
 	// Output
 	friend ostream &operator<<(ostream &out, const Residue &r);
 	string class_name() {return "Residue";};
+
+	bool commit(SQLiteDB &db) {return false;};
 
 private:
 	int position;

@@ -2,7 +2,7 @@
  * Atom.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner
  */
 
 #include "Atom.h"
@@ -48,4 +48,9 @@ void Atom::as_pdb(int &chain_count, int &residue_count, int &atom_count,
 bool Atom::is_CA() {
 	if (get_name() == "CA") return true;
 	else return false;
+}
+
+bool table_exists(SQLiteDB &db) {
+	//db.query();
+	return false;
 }

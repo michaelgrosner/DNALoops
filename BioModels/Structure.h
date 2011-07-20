@@ -2,7 +2,7 @@
  * Structure.h
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef STRUCTURE_H_
@@ -30,6 +30,8 @@ public:
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 
 	string class_name() {return "Structure";};
+
+	bool commit(SQLiteDB &db) {return false;};
 
 private:
 	bool m_is_ideal;

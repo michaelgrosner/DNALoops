@@ -2,47 +2,43 @@
  * main.cpp
  *
  *  Created on: Jul 15, 2011
- *      Author: grosner
+ *      Author: Michael Grosner
  */
 #include <iostream>
 #include "Database/SQLiteDB.h"
 #include "Parsers/PDBLoopParser.h"
 #include "Parsers/X3DNAParser.h"
 #include "BioModels/Entity.h"
+
 #include "Tests/test_biomodels.h"
+#include "Tests/test_database.h"
+
 using namespace std;
 
 int main () {
-	/*SQLiteDB* db;
-	db = new SQLiteDB("db");
-
-	db->query("CREATE TABLE a (a INTEGER, b INTEGER);");
-	db->query("INSERT INTO a VALUES(1,2);");
-	db->query("INSERT INTO a VALUES(5,4);");
-
-	vector<vector<string> > result;
-	result = db->query("SELECT a,b FROM a;");
-
-	vector<vector<string> >::iterator it;
-	for (it = result.begin(); it < result.end(); ++it) {
-		vector<string> row = *it;
-		cout << "A=" << row.at(0) << "B=" << row.at(1) << endl;
-	}
-
-	db->close();*/
+//	SQLiteDB* db = new SQLiteDB("db");
 
 	PDBLoopParser loop_parser("PDBs/A2_open_2HU_78bp_1/");
 
 	Loop l = loop_parser.parse();
 	cout << l << endl;
 
-	//l.run_x3dna();
+	l.run_x3dna();
 
 	X3DNAParser x3dna_parser(l);
-	x3dna_parser.get_bp_steps();
+	x3dna_parser.parse();
 
 	cout << "done" << endl;
-
-	//test_biomodels();
+//
+//	// Commit all changes to database!
+//	if (l.commit(*db)) {
+//		cout << "Successfully saved Database" << endl;
+//	}
+//	else {
+//		cout << "Error saving Database";
+//	}
+//
+//	db->close();
+//	test_database();
 	return 0;
 }

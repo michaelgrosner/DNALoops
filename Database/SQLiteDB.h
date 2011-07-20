@@ -2,7 +2,7 @@
  * SQLiteDB.h
  *
  *  Created on: Jul 15, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef SQLITEDB_H_
@@ -19,6 +19,9 @@ public:
 
 	bool open();
 	vector<vector<string> > query(char* query);
+
+	int create_table(char* table_name);
+
 	void close();
 private:
 	sqlite3* database;

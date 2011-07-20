@@ -259,6 +259,7 @@ Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
@@ -785,6 +786,8 @@ Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h:
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 

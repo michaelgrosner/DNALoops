@@ -2,7 +2,7 @@
  * test_biomodels.cpp
  *
  *  Created on: Jul 18, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "BioModels/Entity.h"

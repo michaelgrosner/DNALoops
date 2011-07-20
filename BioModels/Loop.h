@@ -2,7 +2,7 @@
  * Loop.h
  *
  *  Created on: Jul 15, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef LOOP_H_
@@ -22,6 +22,8 @@ public:
 	// TODO: Change this to either stdout or to a file.
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 	string class_name() {return "Loop";};
+
+	bool commit(SQLiteDB &db) {return false;};
 };
 
 #endif /* LOOP_H_ */

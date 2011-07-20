@@ -2,7 +2,7 @@
  * Entity.cpp
  *
  *  Created on: Jul 17, 2011
- *      Author: grosner
+ *      Author: Michael Grosner
  */
 
 #include "Entity.h"
@@ -69,9 +69,9 @@ vector<Entity*> Entity::get_CAs() {
 
 	vector<Entity*> CAs;
 	foreach(Entity* e, entities) {
-		if (e->is_CA()) {
-			CAs.push_back(e);
-		}
+		//if (e->is_CA()) {
+		//	CAs.push_back(e);
+		//}
 	}
 
 	return CAs;
@@ -98,6 +98,8 @@ ostream& operator<<(ostream &out, const Entity &e) {
 /*Entity operator[](int i) {
 	return get_child_vector()[i];
 }*/
+
+//bool Entity::commit(SQLiteDB &db) {}
 
 // TODO: Make use of the Boost filesystem for this
 void Entity::write_pdb(string filelocation) {
@@ -131,7 +133,7 @@ void Entity::run_x3dna() {
 	// TODO: Ensure misc_3dna.par is in the cwd
 	// TODO: Copy misc_3dna.par to x3dna_temp
 	if (exists(x3dna_temp/path("misc_3dna.par"))) {
-		if (DEBUG) cout << "misc_3nda found" << endl;
+		if (DEBUG) cout << "misc_3nda.par found" << endl;
 	}
 	else {
 		/*char *cmd = (boost::format("cp misc_3dna.par %s") % x3dna_temp).str().c_str();
@@ -148,4 +150,7 @@ void Entity::run_x3dna() {
 	system((boost::format("find_pair %s %s%s") % pdbfilename % pdbfilename % ".inp").str().c_str());
 	if (DEBUG) cout << (boost::format("analyze %s%s") % pdbfilename % ".inp").str().c_str() << endl;
 	system((boost::format("analyze %s%s") % pdbfilename % ".inp").str().c_str());
+
+	chdir("..");
+
 }

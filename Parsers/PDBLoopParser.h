@@ -2,7 +2,7 @@
  * PDBLoopParser.h
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef PDBLOOPPARSER_H_
@@ -27,11 +27,20 @@ public:
 	PDBLoopParser(string model_directory);
 	virtual ~PDBLoopParser();
 
+	/* To make sense of this class, for one Loop all PDB files belonging to
+	 * this Loop must be in a directory pointed to by model_directory. By using
+	 * the glob function, all *.pdb files in the model_directory will be loaded
+	 * into memory (then saved to the database) as Atom/Residue/Chain/Structure
+	 * objects. As the classname suggests, the Loop containing these objects
+	 * as a vector containing pointers to the child objects.
+	 * parse() will do that in one, convienient function.
+	 */
 	Loop parse();
 
 
 private:
 
+	// Handle a single PDB file.
 	void parse_single_pdb_file(string pdb_filename);
 
 	string         m_directory;

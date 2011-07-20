@@ -2,7 +2,7 @@
  * BasePair.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "BasePair.h"
@@ -17,17 +17,18 @@ BasePairEntity::~BasePairEntity() {
 }
 
 BasePairEntity::BasePairEntity(const vector<int>& pairing, const int& position,
-		const CoordinateSystem& coords, Loop& l) :
-	BasePair(coords), strand_position(position) {
+		const CoordinateSystem& coords, Entity& e) : BasePair(coords) {
 
-	foreach(int bp_id, pairing)
-				{
-					vector<Entity*> loop_residues;
-					l.get_sub_entities("Residue", loop_residues);
-					add_child(loop_residues[bp_id]);
-				}
+	vector<Entity*> residues;
+	e.get_sub_entities("Residue", residues);
 
+	foreach(int bp_id, pairing) {
+		add_child(residues[bp_id]);
+	}
 	assert (get_child_vector().size() == 2);
+
+	strand_position = position;
+	set_name(residues[pairing[0]]->get_name()+residues[pairing[1]]->get_name());
 
 }
 

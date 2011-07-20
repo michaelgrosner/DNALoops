@@ -258,7 +258,8 @@ Database/SQLiteDB.d Database/SQLiteDB.o: ../Database/SQLiteDB.cpp \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolKit.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
- /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h
+ /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h
 
 ../Database/SQLiteDB.h:
 
@@ -779,3 +780,5 @@ Database/SQLiteDB.d Database/SQLiteDB.o: ../Database/SQLiteDB.cpp \
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h:
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:

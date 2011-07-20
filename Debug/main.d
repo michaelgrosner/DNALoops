@@ -258,6 +258,7 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
  ../Parsers/PDBLoopParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
@@ -268,7 +269,7 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  ../Parsers/X3DNAParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h \
- ../BioModels/Entity.h ../Tests/test_biomodels.h
+ ../BioModels/Entity.h ../Tests/test_biomodels.h ../Tests/test_database.h
 
 ../Database/SQLiteDB.h:
 
@@ -790,6 +791,8 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
 
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:
+
 ../Parsers/PDBLoopParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
@@ -813,3 +816,5 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 ../BioModels/Entity.h:
 
 ../Tests/test_biomodels.h:
+
+../Tests/test_database.h:

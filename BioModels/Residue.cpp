@@ -2,7 +2,7 @@
  * Residue.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "Residue.h"

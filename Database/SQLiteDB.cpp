@@ -2,14 +2,14 @@
  * SQLiteDB.cpp
  *
  *  Created on: Jul 15, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "SQLiteDB.h"
 
 SQLiteDB::SQLiteDB(string filename) :
-m_filename(filename) {
-	open();
+	m_filename(filename) {
+	assert (open() == true);
 }
 ;
 
@@ -25,8 +25,27 @@ bool SQLiteDB::open() {
 	}
 }
 
-vector<vector<string> > SQLiteDB::query(char* query) {
+int SQLiteDB::create_table(char* table_name) {
+	int result;
+	char query[200];
+	sprintf(query, "CREATE TABLE IF NOT EXISTS %s (x REAL, y REAL, z REAL, name TEXT);", table_name);
+
 	sqlite3_stmt *statement;
+	cout << query << endl;
+	int stmt_code = sqlite3_prepare_v2(database, query, -1, &statement, 0);
+	if (stmt_code == SQLITE_OK) {
+		result = sqlite3_step(statement);
+		cout << "Result code: " << result << endl;
+	}
+	else {
+		cout << "Error in creating table. Error code: " << stmt_code << endl;
+	}
+
+	return result;
+}
+
+vector<vector<string> > SQLiteDB::query(char* query) {
+	sqlite3_stmt            *statement;
 	vector<vector<string> > results;
 
 	if (sqlite3_prepare_v2(database, query, -1, &statement, 0) == SQLITE_OK) {

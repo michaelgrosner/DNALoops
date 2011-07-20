@@ -259,8 +259,10 @@ BioModels/BasePair.d BioModels/BasePair.o: ../BioModels/BasePair.cpp \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h
 
 ../BioModels/BasePair.h:
 
@@ -782,6 +784,10 @@ BioModels/BasePair.d BioModels/BasePair.o: ../BioModels/BasePair.cpp \
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
 
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:
+
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h:

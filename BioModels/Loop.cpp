@@ -2,7 +2,7 @@
  * Loop.cpp
  *
  *  Created on: Jul 15, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "Loop.h"

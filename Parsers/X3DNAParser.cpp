@@ -2,27 +2,26 @@
  * X3DNAParser.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #include "X3DNAParser.h"
 
-X3DNAParser::X3DNAParser(Loop &l) {
-	m_loop = l;
+X3DNAParser::X3DNAParser(Entity &e) {
+	m_entity = e;
 }
 
 X3DNAParser::~X3DNAParser() {
 	// TODO Auto-generated destructor stub
 }
 
-vector<vector<int> > X3DNAParser::read_inp_file() {
+void X3DNAParser::read_inp_file() {
+	if (DEBUG) cout << "Reading .inp file" << endl;
 	path     x3dna_temp = path(X3DNA_TEMP_PATH);
 	path     ref_frames = x3dna_temp / path("all.pdb.inp");
 	ifstream ifs;
 	string   line;
 	ifs.open(ref_frames.string().c_str());
-
-	vector<vector<int> > all_pairings;
 
 	int line_count = 0;
 	while( getline(ifs, line) ) {
@@ -43,13 +42,12 @@ vector<vector<int> > X3DNAParser::read_inp_file() {
 			pairing.push_back(p-1);
 			if (pairing.size() == 2) break;
 		}
-		all_pairings.push_back(pairing);
+		base_pairings.push_back(pairing);
 	}
-
-	return all_pairings;
 }
 
 void X3DNAParser::get_ref_frames() {
+	if (DEBUG) cout << "Reading ref_frames.dat file" << endl;
 
 	/* This function is a total mess. Not because my coding sucks (it does), but
 	 * because the output from X3DNA is in a very parser-friendly output scheme.
@@ -70,13 +68,12 @@ void X3DNAParser::get_ref_frames() {
 
 	BasePairEntity *bp;
 
-	vector<vector<int> > parings = read_inp_file();
-
 	int file_line_number = 0;
 	int bp_line_number   = 0;
 	int bp_number;
 	string base1;
 	string base2;
+
 	while( getline(ifs, line) ) {
 		vector<string> strs;
 		boost::split(strs, line, boost::is_any_of(" "));
@@ -127,7 +124,10 @@ void X3DNAParser::get_ref_frames() {
 										Vector3D<double>(bp_y[0],bp_y[1],bp_y[2]),
 										Vector3D<double>(bp_z[0],bp_z[1],bp_z[2]));
 
-				bp = new BasePairEntity(parings[bp_number], bp_number, coords, m_loop);
+				bp = new BasePairEntity(base_pairings[bp_number], bp_number, coords, m_entity);
+
+				// Save for get_bp_steps()
+				bps.push_back(bp);
 				cout << *bp << endl;
 			}
 
@@ -139,6 +139,7 @@ void X3DNAParser::get_ref_frames() {
 }
 
 void X3DNAParser::get_bp_steps() {
+	if (DEBUG) cout << "Reading bp_step file" << endl;
 	path     x3dna_temp = path(X3DNA_TEMP_PATH);
 	path     bp_step = x3dna_temp / path("bp_step.par");
 	ifstream ifs;
@@ -161,27 +162,39 @@ void X3DNAParser::get_bp_steps() {
 		vector<string> sp_vec;
 
 		// Shift
-		sp_vec.push_back( line.substr(52,8).c_str() );
+		sp_vec.push_back( line.substr(52,8) );
 
 		// Slide
-		sp_vec.push_back( line.substr(60,8).c_str() );
+		sp_vec.push_back( line.substr(60,8) );
 
 		// Rise
-		sp_vec.push_back( line.substr(68,8).c_str() );
+		sp_vec.push_back( line.substr(68,8) );
 
 		// Tilt
-		sp_vec.push_back( line.substr(76,8).c_str() );
+		sp_vec.push_back( line.substr(76,8) );
 
 		// Roll
-		sp_vec.push_back( line.substr(84,8).c_str() );
+		sp_vec.push_back( line.substr(84,8) );
 
 		// Twist
-		sp_vec.push_back( line.substr(92,8).c_str() );
+		sp_vec.push_back( line.substr(92,8) );
 
 		string vec_string = "{" + boost::algorithm::join(sp_vec, ",") + "}";
 
-		sp = new StepParameterEntity(vec_string, m_loop, line_count-5);
+		sp = new StepParameterEntity(vec_string, m_entity,
+				bps[line_count-5], bps[line_count-4], line_count-5);
+
+		cout << *sp << endl;
 
 	}
 
+}
+
+void X3DNAParser::parse() {
+	if (DEBUG) cout << "Beginning to parse X3DNA output" << endl;
+
+	// Do all three parsing methods in one shot.
+	read_inp_file();
+	get_ref_frames();
+	get_bp_steps();
 }

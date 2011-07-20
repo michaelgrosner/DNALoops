@@ -2,7 +2,7 @@
  * Chain.h
  *
  *  Created on: Jul 16, 2011
- *      Author: grosner
+ *      Author: Michael Grosner Grosner
  */
 
 #ifndef CHAIN_H_
@@ -21,6 +21,8 @@ public:
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 	string class_name() {return "Chain";};
+
+	bool commit(SQLiteDB &db) {return false;};
 
 private:
 

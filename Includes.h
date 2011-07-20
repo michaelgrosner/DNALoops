@@ -2,7 +2,7 @@
  * Includes.h
  *
  *  Created on: Jul 17, 2011
- *      Author: grosner
+ *      Author: Michael Grosner
  */
 
 #ifndef INCLUDES_H_
@@ -11,8 +11,9 @@
 // Providing many simulation tools
 #include <DNASim.h>
 
-// Database connection
+// Database connection and interface
 #include <sqlite3.h>
+#include "Database/SQLiteDB.h"
 
 // STL stuff probably declared in DNASim anyways.
 #include <iostream>
@@ -33,6 +34,6 @@ using namespace std;
 // BOOST_FOREACH in all caps is ugly.
 #define foreach          BOOST_FOREACH
 #define DEBUG			 true
-#define X3DNA_TEMP_PATH "x3dna_temp/"
+#define X3DNA_TEMP_PATH  "x3dna_temp/"
 
 #endif /* INCLUDES_H_ */

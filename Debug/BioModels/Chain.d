@@ -259,6 +259,7 @@ BioModels/Chain.d BioModels/Chain.o: ../BioModels/Chain.cpp \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h
 
 ../BioModels/Chain.h:
@@ -780,5 +781,7 @@ BioModels/Chain.d BioModels/Chain.o: ../BioModels/Chain.cpp \
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h:
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:

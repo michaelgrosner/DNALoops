@@ -2,7 +2,7 @@
  * Entity.h
  *
  *  Created on: Jul 17, 2011
- *      Author: grosner
+ *      Author: Michael Grosner
  */
 
 #ifndef ENTITY_H_
@@ -23,14 +23,22 @@ public:
 	virtual ~Entity();
 
 	// Setters
+	/* Simply push back the vector containing the references to the children
+	 * and set the child's parent to this */
 	void add_child(Entity *child);
+
+	/* Don't use this function for anything other than as a setter for the
+	 * add_child method implemented above since this won't set the recursive
+	 * relationship */
 	void set_parent(Entity *parent);
+
+	/* Give the Entity a pretty name */
 	void set_name(string name);
 
 	// Getters
 	vector<Entity*> get_child_vector() const;
-	Entity*         get_parent();
-	string			get_name() const;
+	Entity* get_parent();
+	string get_name() const;
 
 	// Model-Specific getters
 	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
@@ -46,21 +54,33 @@ public:
 
 	// To handle default arguments and make things prettier, never call this
 	// directly, always use the pure to_pdb() method to generate PDB files!
-	void           write_pdb(string filelocation);
-	virtual void   as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile) {};
+	void write_pdb(string filelocation);
+	virtual void as_pdb(int &chain_count, int &residue_count, int &atom_count,
+			ofstream &pdbfile) {}
 
 	// Due to circular dependency issues, the only way I'm able to check for class
 	// type is via a virtual function returning the name of the model.
-	virtual string class_name() {};
+	virtual string class_name() {return "Entity";};
+
+	// Database methods
+	/* Save Entity to DB. Return true if success */
+	virtual bool commit(SQLiteDB &db) {return false;};
 
 	// Operator Methods
 	// Get i'th child
 	//Entity operator[](int i);
 
+	/* run_x3dna() will use all the child entities placed into this Entity to
+	 * a) Generate a PDB file using the Atoms/Residues/etc. hopefully in the
+	 *    correct order in which they were loaded via the write_pdb() function
+	 * b) Make the appropriate system calls to the X3DNA suite of programs
+	 *
+	 * Afterwards, to load the output files into a Loop, use the X3DNAParser
+	 * class. */
 	void run_x3dna();
 
-	bool   is_bottom;
-	bool   is_top;
+	bool is_bottom;
+	bool is_top;
 
 private:
 
