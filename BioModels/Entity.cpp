@@ -38,6 +38,10 @@ void Entity::set_name(string name) {
 	m_name = name;
 }
 
+void Entity::set_name(path name) {
+	m_name = name.stem();
+}
+
 // Getters
 vector<Entity*> Entity::get_child_vector() const {
 	return m_children;
@@ -52,48 +56,33 @@ string Entity::get_name() const {
 }
 
 // Model-Specific getters
-void Entity::get_sub_entities(string of_type, vector<Entity*> &entities) {
-	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
-	foreach(Entity* e, get_child_vector()) {
-		if (e->class_name() == of_type) {
-			entities.push_back(e);
-		} else {
-			e->get_sub_entities(of_type, entities);
-		};
-	}
-}
 
-vector<Entity*> Entity::get_CAs() {
-	vector<Entity*> entities;
-	get_sub_entities("Atom", entities);
 
-	vector<Entity*> CAs;
-	foreach(Entity* e, entities) {
-		//if (e->is_CA()) {
-		//	CAs.push_back(e);
-		//}
-	}
-
-	return CAs;
-}
+//vector<Atom*> Entity::get_CAs() {
+//	vector<Atom*> atoms;
+//	vector<Atom*> CAs;
+//
+//	get_all<Atom*>(atoms);
+//
+//	foreach(Atom* a, atoms) {
+//		if (a->is_CA()) {
+//			CAs.push_back(a);
+//		}
+//	}
+//
+//	return CAs;
+//}
 
 // Statistics
 int Entity::n_children() const {
 	return m_children.size();
 }
 
-int Entity::n_atoms() {
-	vector<Entity*> entities;
-	get_sub_entities("Atom", entities);
-	return entities.size();
-}
-
-// Output methods
-// Use the subclass to handle output
-ostream& operator<<(ostream &out, const Entity &e) {
-	out << e.get_name();
-	return out;
-}
+//int Entity::n_atoms() {
+//	vector<Atom*> entities;
+//	get_all<Atom*>(entities);
+//	return entities.size();
+//}
 
 /*Entity operator[](int i) {
 	return get_child_vector()[i];
@@ -153,4 +142,11 @@ void Entity::run_x3dna() {
 
 	chdir("..");
 
+}
+
+// Output methods
+// Use the subclass to handle output
+ostream& operator<<(ostream &out, const Entity &e) {
+	out << e.class_name() << " " << e.get_name();
+	return out;
 }

@@ -2,18 +2,13 @@
  * X3DNAParser.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
+ *      Author: Michael Grosner
  */
 
 #include "X3DNAParser.h"
 
-X3DNAParser::X3DNAParser(Entity &e) {
-	m_entity = e;
-}
-
-X3DNAParser::~X3DNAParser() {
-	// TODO Auto-generated destructor stub
-}
+X3DNAParser::X3DNAParser(Entity &e) : m_entity(e) {}
+X3DNAParser::~X3DNAParser() {}
 
 void X3DNAParser::read_inp_file() {
 	if (DEBUG) cout << "Reading .inp file" << endl;
@@ -128,7 +123,6 @@ void X3DNAParser::get_ref_frames() {
 
 				// Save for get_bp_steps()
 				bps.push_back(bp);
-				cout << *bp << endl;
 			}
 
 			rec_number += 1;
@@ -161,15 +155,6 @@ void X3DNAParser::get_bp_steps() {
 		// style to get a suitable constructor
 		vector<string> sp_vec;
 
-		// Shift
-		sp_vec.push_back( line.substr(52,8) );
-
-		// Slide
-		sp_vec.push_back( line.substr(60,8) );
-
-		// Rise
-		sp_vec.push_back( line.substr(68,8) );
-
 		// Tilt
 		sp_vec.push_back( line.substr(76,8) );
 
@@ -179,12 +164,19 @@ void X3DNAParser::get_bp_steps() {
 		// Twist
 		sp_vec.push_back( line.substr(92,8) );
 
+		// Shift
+		sp_vec.push_back( line.substr(52,8) );
+
+		// Slide
+		sp_vec.push_back( line.substr(60,8) );
+
+		// Rise
+		sp_vec.push_back( line.substr(68,8) );
+
 		string vec_string = "{" + boost::algorithm::join(sp_vec, ",") + "}";
 
-		sp = new StepParameterEntity(vec_string, m_entity,
+		sp = new StepParameterEntity(VectorReal(vec_string), m_entity,
 				bps[line_count-5], bps[line_count-4], line_count-5);
-
-		cout << *sp << endl;
 
 	}
 

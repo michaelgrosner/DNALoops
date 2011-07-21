@@ -1,5 +1,4 @@
-main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h \
+main.d main.o: ../main.cpp ../Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/DNASim.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/DNASim_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/DNASim_Defines.h \
@@ -258,22 +257,30 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TK_Includes.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestObject.h \
  /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
- ../Parsers/PDBLoopParser.h \
+ ../Database/SQLiteDB.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h \
+ ../Defines.h ../Forwards.h ../Parsers/PDBLoopParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
  ../Parsers/X3DNAParser.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h \
+ ../Parsers/IdealStructureBuilder.h ../BioModels/BasePair.h \
  ../BioModels/Entity.h ../Tests/test_biomodels.h ../Tests/test_database.h
 
-../Database/SQLiteDB.h:
-
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h:
+../Includes.h:
 
 /net/actin/u1/home/grosner/lib/DNASim/include/DNASim.h:
 
@@ -791,13 +798,21 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 
 /net/actin/u1/home/grosner/lib/DNASim/include/TestToolKit/TestToolObject.h:
 
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h:
+../Database/SQLiteDB.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Includes.h:
+
+../Defines.h:
+
+../Forwards.h:
 
 ../Parsers/PDBLoopParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Entity.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h:
 
@@ -807,11 +822,29 @@ main.d main.o: ../main.cpp ../Database/SQLiteDB.h \
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
 
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h:
+
 ../Parsers/X3DNAParser.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h:
+
+../Parsers/IdealStructureBuilder.h:
+
+../BioModels/BasePair.h:
 
 ../BioModels/Entity.h:
 

@@ -3,14 +3,31 @@
  *
  *  Created on: Jul 17, 2011
  *      Author: Michael Grosner
+ *
+ *      The scheme of my objects is as follows:
+ *
+ *      Atom -(many)-> Residue -(many)-> Chain -(many)-> Structure -(many)-> Loop
+ *      				  |									^			      ^
+ *      				(two)							(many)   (many)------/
+ *      				  |								/		/
+ *      			BasePairEntity -(two)-> StepParameterEntity
+ *
+ *      Entity is the base class of all these objects (BasePairEntity and
+ *      StepParameterEntity objects also inherit from BasePair and StepParameter
+ *      DNASim objects)
+ *
+ *      Entity objects have a few built-in functions which define the
+ *      relationships between parent and child entities, and the accessor/setter
+ *      methods to make use of them.
+ *
+ *      In the future, I'd also like virtual functions implemented through this
+ *      class to handle database transactions.
  */
 
 #ifndef ENTITY_H_
 #define ENTITY_H_
 
 #include "Includes.h"
-#include "boost/foreach.hpp"
-#include "boost/filesystem.hpp"
 #include "boost/format.hpp"
 
 using namespace boost::filesystem;
@@ -34,6 +51,7 @@ public:
 
 	/* Give the Entity a pretty name */
 	void set_name(string name);
+	void set_name(path   path);
 
 	// Getters
 	vector<Entity*> get_child_vector() const;
@@ -41,9 +59,14 @@ public:
 	string get_name() const;
 
 	// Model-Specific getters
-	// TODO: Resolve circular imports ???, allow vector<Atom*> ???
-	void get_sub_entities(string of_type, vector<Entity*> &entities);
-	vector<Entity*> get_CAs();
+	template <class ChildClass> vector<ChildClass> get_all();
+	template <class ChildClass> vector<ChildClass> get_all_reversed();
+	//template <class ChildClass> vector<ChildClass> get_all_reversed();
+	template <class ChildClass> int n_of();
+	vector<Atom*> get_CAs();
+
+	// Disregard this. This is used in the recursive algorithm for get_all().
+	template <class ChildClass> void get_all__driver(vector<ChildClass> &entities);
 
 	// Statistics
 	int n_children() const;
@@ -60,7 +83,7 @@ public:
 
 	// Due to circular dependency issues, the only way I'm able to check for class
 	// type is via a virtual function returning the name of the model.
-	virtual string class_name() {return "Entity";};
+	virtual string class_name() const {return "Entity";};
 
 	// Database methods
 	/* Save Entity to DB. Return true if success */
@@ -102,5 +125,35 @@ private:
 	Entity* m_parent;
 
 };
+
+template <class ChildClass>
+void Entity::get_all__driver(vector<ChildClass> &entities) {
+	// Recursive tree algorithm to find the Atoms, all tagged with is_bottom.
+	foreach(Entity* e, get_child_vector()) {
+		if (dynamic_cast<ChildClass>(e) != NULL) {
+			entities.push_back(dynamic_cast<ChildClass>(e));
+		} else {
+			e->get_all__driver<ChildClass>(entities);
+		};
+	}
+}
+
+template <class ChildClass>
+vector<ChildClass> Entity::get_all() {
+	vector<ChildClass> entities;
+	get_all__driver<ChildClass>(entities);
+	return entities;
+}
+
+template <class ChildClass>
+vector<ChildClass> Entity::get_all_reversed() {
+	vector<ChildClass> all = get_all<ChildClass>();
+	return vector<ChildClass>(all.rbegin(), all.rend());
+}
+
+template <class ChildClass>
+int Entity::n_of() {
+	return get_all<ChildClass>().size();
+}
 
 #endif /* ENTITY_H_ */

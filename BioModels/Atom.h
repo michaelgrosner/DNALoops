@@ -9,7 +9,7 @@
 #define ATOM_H_
 
 #include "Includes.h"
-#include "BioModels/Entity.h"
+#include "Entity.h"
 
 class Atom : public Entity {
 public:
@@ -26,7 +26,7 @@ public:
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 
 	// Get a string representing class name. Useful for the Entity base class
-	string class_name() {return "Atom";};
+	string class_name() const {return "Atom";};
 
 	// Is this atom an alpha carbon? Return true if so.
 	bool is_CA();

@@ -2,8 +2,7 @@
  * SQLiteDB.h
  *
  *  Created on: Jul 15, 2011
- *      Author: Michael Grosner Grosner
- */
+ *      Author: Michael Grosner*/
 
 #ifndef SQLITEDB_H_
 #define SQLITEDB_H_

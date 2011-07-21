@@ -25,15 +25,21 @@
 #include <assert.h>
 #include <glob.h>
 #include <sstream>
+#include <omp.h>
+#include <algorithm>
+#include <functional>
 
 // C stuff. Just because I need them.
 #include "stdlib.h"
 #include "stdio.h"
+
+// These boost headers are used everywhere in this project.
+#include "boost/foreach.hpp"
+#include "boost/filesystem.hpp"
+
+// Really shouldn't put this here...
 using namespace std;
 
-// BOOST_FOREACH in all caps is ugly.
-#define foreach          BOOST_FOREACH
-#define DEBUG			 true
-#define X3DNA_TEMP_PATH  "x3dna_temp/"
-
+#include "Defines.h"
+#include "Forwards.h"
 #endif /* INCLUDES_H_ */

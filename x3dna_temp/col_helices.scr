@@ -5,35 +5,35 @@ load nmrpdb hel_regions.pdb
 
 
 #------Helix #1, color: red------
-select 714:E, 741:F
+select 728:F, 727:E
 color red
-select 715:E, 740:F
+select 729:F, 726:E
 color red
-select 716:E, 739:F
+select 730:F, 725:E
 color red
-select 717:E, 738:F
+select 731:F, 724:E
 color red
-select 718:E, 737:F
+select 732:F, 723:E
 color red
-select 719:E, 736:F
+select 733:F, 722:E
 color red
-select 720:E, 735:F
+select 734:F, 721:E
 color red
-select 721:E, 734:F
+select 735:F, 720:E
 color red
-select 722:E, 733:F
+select 736:F, 719:E
 color red
-select 723:E, 732:F
+select 737:F, 718:E
 color red
-select 724:E, 731:F
+select 738:F, 717:E
 color red
-select 725:E, 730:F
+select 739:F, 716:E
 color red
-select 726:E, 729:F
-color red
-select 727:E, 728:F
+select 740:F, 715:E
 color red
 select 1482:K, 1639:L
+color red
+select 741:F, 714:E
 color red
 select 1483:K, 1638:L
 color red
@@ -191,33 +191,33 @@ select 1559:K, 1562:L
 color red
 select 1560:K, 1561:L
 color red
-select 1454:I, 1481:J
+select 1468:J, 1467:I
 color red
-select 1455:I, 1480:J
+select 1469:J, 1466:I
 color red
-select 1456:I, 1479:J
+select 1470:J, 1465:I
 color red
-select 1457:I, 1478:J
+select 1471:J, 1464:I
 color red
-select 1458:I, 1477:J
+select 1472:J, 1463:I
 color red
-select 1459:I, 1476:J
+select 1473:J, 1462:I
 color red
-select 1460:I, 1475:J
+select 1474:J, 1461:I
 color red
-select 1461:I, 1474:J
+select 1475:J, 1460:I
 color red
-select 1462:I, 1473:J
+select 1476:J, 1459:I
 color red
-select 1463:I, 1472:J
+select 1477:J, 1458:I
 color red
-select 1464:I, 1471:J
+select 1478:J, 1457:I
 color red
-select 1465:I, 1470:J
+select 1479:J, 1456:I
 color red
-select 1466:I, 1469:J
+select 1480:J, 1455:I
 color red
-select 1467:I, 1468:J
+select 1481:J, 1454:I
 color red
 
 select all

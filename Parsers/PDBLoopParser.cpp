@@ -2,13 +2,20 @@
  * PDBLoopParser.cpp
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
- */
+ *      Author: Michael Grosner*/
 
 #include "PDBLoopParser.h"
 
 PDBLoopParser::PDBLoopParser(string model_directory) : m_directory(model_directory) {
-	m_loop.set_name(m_directory);
+	m_loop.set_name(m_directory.stem());
+}
+
+PDBLoopParser::PDBLoopParser(char*  model_directory) : m_directory(model_directory) {
+	m_loop.set_name(m_directory.stem());
+}
+
+PDBLoopParser::PDBLoopParser(path   model_directory) : m_directory(model_directory) {
+	m_loop.set_name(m_directory.stem());
 }
 
 PDBLoopParser::~PDBLoopParser() {
@@ -17,24 +24,17 @@ PDBLoopParser::~PDBLoopParser() {
 
 Loop PDBLoopParser::parse() {
 
-	// TODO: Check for slash between directory and *.pdb
-	string glob_query = m_directory + "*.pdb";
+	directory_iterator end_itr;
 
-	glob_t globbuf;
-	globbuf.gl_offs = 2;
-	glob(glob_query.c_str(), 0, NULL, &globbuf);
+	// TODO: Raise an exception
+	//if (!exists(p)) return false;
 
-	// If you ever need to append more paths later down the line, uncommment this line
-	//glob("../*.cpp", GLOB_DOOFFS | GLOB_APPEND, NULL, &globbuf);
-
-	for (unsigned int i = 0; i < globbuf.gl_pathc; i++) {
-		m_filepaths.push_back(globbuf.gl_pathv[i]);
-		parse_single_pdb_file(globbuf.gl_pathv[i]);
-	}
-
-	if (DEBUG) {
-		foreach (Entity *s, m_loop.get_child_vector()) {
-			cout << "Structure: " << s->get_name() << " " << s->n_children() << endl;
+	for (directory_iterator itr(m_directory); itr != end_itr; itr++) {
+		// If this is a file,
+		if (is_regular_file(itr->path()) && itr->path().extension() == ".pdb") {
+			// m_filepaths is unneeded
+			m_filepaths.push_back(itr->path());
+			parse_single_pdb_file(itr->path().string());
 		}
 	}
 

@@ -2,14 +2,12 @@
  * Structure.h
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
- */
-
+ *      Author: Michael Grosner*/
 #ifndef STRUCTURE_H_
 #define STRUCTURE_H_
 
 #include "Includes.h"
-#include "BioModels/Entity.h"
+#include "Entity.h"
 
 class Structure : public Entity {
 public:
@@ -29,7 +27,7 @@ public:
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
 
-	string class_name() {return "Structure";};
+	string class_name() const {return "Structure";};
 
 	bool commit(SQLiteDB &db) {return false;};
 

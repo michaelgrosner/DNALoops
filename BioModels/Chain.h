@@ -2,14 +2,12 @@
  * Chain.h
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
- */
-
+ *      Author: Michael Grosner*/
 #ifndef CHAIN_H_
 #define CHAIN_H_
 
 #include "Includes.h"
-#include "BioModels/Entity.h"
+#include "Entity.h"
 
 class Chain : public Entity {
 public:
@@ -20,7 +18,7 @@ public:
 	friend ostream &operator<<(ostream &out, const Chain &c);
 
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);
-	string class_name() {return "Chain";};
+	string class_name() const {return "Chain";};
 
 	bool commit(SQLiteDB &db) {return false;};
 

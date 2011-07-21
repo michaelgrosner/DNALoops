@@ -2,9 +2,7 @@
  * SQLiteDB.cpp
  *
  *  Created on: Jul 15, 2011
- *      Author: Michael Grosner Grosner
- */
-
+ *      Author: Michael Grosner*/
 #include "SQLiteDB.h"
 
 SQLiteDB::SQLiteDB(string filename) :

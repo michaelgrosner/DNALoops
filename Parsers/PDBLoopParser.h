@@ -2,9 +2,7 @@
  * PDBLoopParser.h
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
- */
-
+ *      Author: Michael Grosner */
 #ifndef PDBLOOPPARSER_H_
 #define PDBLOOPPARSER_H_
 
@@ -25,6 +23,8 @@
 class PDBLoopParser {
 public:
 	PDBLoopParser(string model_directory);
+	PDBLoopParser(char*  model_directory);
+	PDBLoopParser(path   model_directory);
 	virtual ~PDBLoopParser();
 
 	/* To make sense of this class, for one Loop all PDB files belonging to
@@ -43,8 +43,8 @@ private:
 	// Handle a single PDB file.
 	void parse_single_pdb_file(string pdb_filename);
 
-	string         m_directory;
-	vector<string> m_filepaths;
+	path           m_directory;
+	vector<path>   m_filepaths;
 	Loop		   m_loop;
 
 };

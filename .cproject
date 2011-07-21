@@ -34,6 +34,7 @@
 									<listOptionValue builtIn="false" value="/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC"/>
 									<listOptionValue builtIn="false" value="/net/actin/u1/home/grosner/lib/DNASim/include"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.other.other.1119419160" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fpermissive" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1311594548" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.343135022" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">

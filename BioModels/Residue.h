@@ -2,14 +2,12 @@
  * Residue.h
  *
  *  Created on: Jul 16, 2011
- *      Author: Michael Grosner Grosner
- */
-
+ *      Author: Michael Grosner*/
 #ifndef RESIDUE_H_
 #define RESIDUE_H_
 
 #include "Includes.h"
-#include "BioModels/Entity.h"
+#include "Entity.h"
 #include <boost/algorithm/string.hpp>
 
 class Residue : public Entity {
@@ -28,7 +26,7 @@ public:
 
 	// Output
 	friend ostream &operator<<(ostream &out, const Residue &r);
-	string class_name() {return "Residue";};
+	string class_name() const {return "Residue";};
 
 	bool commit(SQLiteDB &db) {return false;};
 
