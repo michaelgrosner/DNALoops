@@ -21,6 +21,8 @@ public:
 
 	void set_residue_pk(int fk);
 
+	Vector3D<double> position();
+
 	// Output methods
 	friend ostream &operator<<(ostream &out, const Atom &a);
 	void as_pdb(int &chain_count, int &residue_count, int &atom_count, ofstream &pdbfile);

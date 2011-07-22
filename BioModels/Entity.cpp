@@ -8,7 +8,7 @@
 #include "Entity.h"
 
 // Construction and destruction
-Entity::Entity() {
+Entity::Entity() : m_parent(NULL) {
 	pk = 0;
 	m_name = "NO NAME";
 	is_bottom = false;
@@ -28,14 +28,10 @@ void Entity::add_child(Entity *child) {
 
 void Entity::set_parent(Entity *parent) {
 	m_parent = parent;
-
-	//TODO: Fix this!!!!
-	//parent->add_child(this);
 }
-;
 
 void Entity::set_name(string name) {
-	m_name = name;
+	m_name = boost::trim_copy(name);
 }
 
 void Entity::set_name(path name) {
@@ -136,16 +132,15 @@ void Entity::run_x3dna() {
 	// TODO: ret is the chdir status code, -1 meaning an error. Handle later.
 	int ret = chdir(x3dna_temp.string().c_str());
 	if (DEBUG) cout << (boost::format("find_pair %s %s%s") % pdbfilename % pdbfilename % ".inp").str().c_str() << endl;
-	system((boost::format("find_pair %s %s%s") % pdbfilename % pdbfilename % ".inp").str().c_str());
+	system((boost::format("find_pair %s %s%s 2> /dev/null") % pdbfilename % pdbfilename % ".inp").str().c_str());
 	if (DEBUG) cout << (boost::format("analyze %s%s") % pdbfilename % ".inp").str().c_str() << endl;
-	system((boost::format("analyze %s%s") % pdbfilename % ".inp").str().c_str());
+	system((boost::format("analyze %s%s 2> /dev/null") % pdbfilename % ".inp").str().c_str());
 
 	chdir("..");
 
 }
 
 // Output methods
-// Use the subclass to handle output
 ostream& operator<<(ostream &out, const Entity &e) {
 	out << e.class_name() << " " << e.get_name();
 	return out;

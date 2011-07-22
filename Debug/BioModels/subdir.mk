@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../BioModels/BasePair.cpp \
 ../BioModels/Chain.cpp \
 ../BioModels/Entity.cpp \
+../BioModels/Helpers.cpp \
 ../BioModels/Loop.cpp \
 ../BioModels/Residue.cpp \
 ../BioModels/StepParameter.cpp \
@@ -18,6 +19,7 @@ OBJS += \
 ./BioModels/BasePair.o \
 ./BioModels/Chain.o \
 ./BioModels/Entity.o \
+./BioModels/Helpers.o \
 ./BioModels/Loop.o \
 ./BioModels/Residue.o \
 ./BioModels/StepParameter.o \
@@ -28,6 +30,7 @@ CPP_DEPS += \
 ./BioModels/BasePair.d \
 ./BioModels/Chain.d \
 ./BioModels/Entity.d \
+./BioModels/Helpers.d \
 ./BioModels/Loop.d \
 ./BioModels/Residue.d \
 ./BioModels/StepParameter.d \
@@ -38,7 +41,7 @@ CPP_DEPS += \
 BioModels/%.o: ../BioModels/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC -I/net/actin/u1/home/grosner/lib/DNASim/include -O0 -g3 -Wall -c -fmessage-length=0 -fpermissive -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	g++ -I/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC -I/net/actin/u1/home/grosner/lib/DNASim/include -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

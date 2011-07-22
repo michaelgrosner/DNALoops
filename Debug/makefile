@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include subdir.mk
 -include Parsers/subdir.mk
+-include FileSystem/subdir.mk
 -include Database/subdir.mk
 -include BioModels/subdir.mk
 -include objects.mk

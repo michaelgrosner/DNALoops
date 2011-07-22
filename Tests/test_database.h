@@ -13,7 +13,7 @@
 bool test_database () {
 	SQLiteDB* db = new SQLiteDB("test_db");
 
-	db->create_table("Atom");
+	db->create_table("Atom", "a INTEGER, b INTEGER");
 
 //	db->query("CREATE TABLE a (a INTEGER, b INTEGER);");
 //	db->query("INSERT INTO a VALUES(1,2);");

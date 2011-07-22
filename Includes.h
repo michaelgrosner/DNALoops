@@ -23,15 +23,14 @@
 #include <exception>
 #include <unistd.h>
 #include <assert.h>
-#include <glob.h>
 #include <sstream>
 #include <omp.h>
 #include <algorithm>
-#include <functional>
 
 // C stuff. Just because I need them.
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
 
 // These boost headers are used everywhere in this project.
 #include "boost/foreach.hpp"

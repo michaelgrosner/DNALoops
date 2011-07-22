@@ -262,7 +262,9 @@ BioModels/Structure.d BioModels/Structure.o: ../BioModels/Structure.cpp \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Database/SQLiteDB.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Defines.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Forwards.h \
- ../BioModels/Entity.h
+ ../BioModels/Entity.h ../BioModels/Atom.h ../BioModels/BasePair.h \
+ ../BioModels/Loop.h ../BioModels/StepParameter.h ../BioModels/Chain.h \
+ ../BioModels/Residue.h
 
 ../BioModels/Structure.h:
 
@@ -791,3 +793,15 @@ BioModels/Structure.d BioModels/Structure.o: ../BioModels/Structure.cpp \
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Forwards.h:
 
 ../BioModels/Entity.h:
+
+../BioModels/Atom.h:
+
+../BioModels/BasePair.h:
+
+../BioModels/Loop.h:
+
+../BioModels/StepParameter.h:
+
+../BioModels/Chain.h:
+
+../BioModels/Residue.h:

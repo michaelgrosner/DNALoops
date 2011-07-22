@@ -49,3 +49,17 @@ VectorReal StepParameterEntity::reversed() {
 	v[TILT]  = -v[TILT];
 	return v;
 }
+
+Vector3D<double> StepParameterEntity::position_3d() {
+	vector<BasePairEntity*> bps = get_all<BasePairEntity*>();
+
+	// TODO: Raise?
+	if (bps.size() != 2) {
+		cout << "Need at least two BasePairEntity objects as children to a ";
+		cout << "StepParameterEntity to calculate its origin" << endl;
+		//return;
+	}
+	Vector3D<double> t = (bps[0]->origin()+bps[1]->origin());
+	t /= 2;
+	return t;
+}

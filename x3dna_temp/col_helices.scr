@@ -5,35 +5,35 @@ load nmrpdb hel_regions.pdb
 
 
 #------Helix #1, color: red------
-select 728:F, 727:E
+select 714:E, 741:F
 color red
-select 729:F, 726:E
+select 715:E, 740:F
 color red
-select 730:F, 725:E
+select 716:E, 739:F
 color red
-select 731:F, 724:E
+select 717:E, 738:F
 color red
-select 732:F, 723:E
+select 718:E, 737:F
 color red
-select 733:F, 722:E
+select 719:E, 736:F
 color red
-select 734:F, 721:E
+select 720:E, 735:F
 color red
-select 735:F, 720:E
+select 721:E, 734:F
 color red
-select 736:F, 719:E
+select 722:E, 733:F
 color red
-select 737:F, 718:E
+select 723:E, 732:F
 color red
-select 738:F, 717:E
+select 724:E, 731:F
 color red
-select 739:F, 716:E
+select 725:E, 730:F
 color red
-select 740:F, 715:E
+select 726:E, 729:F
+color red
+select 727:E, 728:F
 color red
 select 1482:K, 1639:L
-color red
-select 741:F, 714:E
 color red
 select 1483:K, 1638:L
 color red
@@ -189,9 +189,9 @@ select 1558:K, 1563:L
 color red
 select 1559:K, 1562:L
 color red
-select 1560:K, 1561:L
-color red
 select 1468:J, 1467:I
+color red
+select 1560:K, 1561:L
 color red
 select 1469:J, 1466:I
 color red

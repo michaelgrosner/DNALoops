@@ -45,6 +45,10 @@ void Atom::as_pdb(int &chain_count, int &residue_count, int &atom_count,
 
 }
 
+Vector3D<double> Atom::position() {
+	return Vector3D<double>(x,y,z);
+}
+
 bool Atom::is_CA() {
 	if (get_name() == "CA") return true;
 	else return false;

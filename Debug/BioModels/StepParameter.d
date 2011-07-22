@@ -263,8 +263,8 @@ BioModels/StepParameter.d BioModels/StepParameter.o: \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Defines.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/Forwards.h \
  ../BioModels/Entity.h ../BioModels/BasePair.h ../BioModels/Loop.h \
- ../BioModels/Structure.h ../BioModels/Chain.h ../BioModels/Residue.h \
- ../BioModels/Atom.h
+ ../BioModels/Structure.h ../BioModels/Atom.h ../BioModels/Chain.h \
+ ../BioModels/Residue.h
 
 ../BioModels/StepParameter.h:
 
@@ -800,8 +800,8 @@ BioModels/StepParameter.d BioModels/StepParameter.o: \
 
 ../BioModels/Structure.h:
 
+../BioModels/Atom.h:
+
 ../BioModels/Chain.h:
 
 ../BioModels/Residue.h:
-
-../BioModels/Atom.h:

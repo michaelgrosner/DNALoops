@@ -10,7 +10,9 @@
  *      				  |									^			      ^
  *      				(two)							(many)   (many)------/
  *      				  |								/		/
- *      			BasePairEntity -(two)-> StepParameterEntity
+ *      			BasePairEntity -(two*)-> StepParameterEntity
+ *
+ *      (* = not strictly enforced)
  *
  *      Entity is the base class of all these objects (BasePairEntity and
  *      StepParameterEntity objects also inherit from BasePair and StepParameter
@@ -29,6 +31,7 @@
 
 #include "Includes.h"
 #include "boost/format.hpp"
+#include <boost/algorithm/string.hpp>
 
 using namespace boost::filesystem;
 

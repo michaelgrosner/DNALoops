@@ -268,14 +268,14 @@ Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h \
  /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h \
- /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h \
+ /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h
 
 ../Parsers/PDBLoopParser.h:
 
@@ -815,18 +815,18 @@ Parsers/PDBLoopParser.d Parsers/PDBLoopParser.o: \
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h:
 
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
-
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h:
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/BasePair.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:
 
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h:
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Structure.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/StepParameter.h:
 
 /net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Chain.h:
 
-/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Atom.h:
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Residue.h:
+
+/net/actin/u1/home/grosner/Documents/Dropbox/DNALoopsC/BioModels/Loop.h:

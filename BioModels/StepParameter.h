@@ -26,6 +26,9 @@ public:
 	/* Position in the DNA strand */
 	int position();
 
+	/* 3D Position */
+	Vector3D<double> position_3d();
+
 	/* When traversing along a strand of DNA in the reverse direction, the sign
 	 * of shift and tilt become negative. Return a copy of the VectorReal in
 	 * the reverse direction */

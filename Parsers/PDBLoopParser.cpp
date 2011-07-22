@@ -113,7 +113,7 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 		   TODO: Ensure that the empty structure does not get committed to DB */
 		else if (line.compare(0, ter.length(), ter) == 0) {
 			if (DEBUG) {
-				cout << "Pushing back " << s->get_name() << " Size: " << s->get_child_vector().size() << endl;
+				cout << "Pushing back " << *s << endl;
 			}
 			m_loop.add_child(s);
 			make_new = true;
@@ -122,7 +122,7 @@ void PDBLoopParser::parse_single_pdb_file(string pdb_filename) {
 
 	// If no TER at the EOF, add the structure
 	if ( (s->get_child_vector().size() != 0) && !make_new ) {
-		if (DEBUG) {cout << "Pushing back " << s->get_name() << " Size: " << s->get_child_vector().size() << endl;}
+		if (DEBUG) {cout << "Pushing back " << *s << endl;}
 		m_loop.add_child(s);
 	}
 

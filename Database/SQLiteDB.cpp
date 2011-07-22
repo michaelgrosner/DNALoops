@@ -23,10 +23,11 @@ bool SQLiteDB::open() {
 	}
 }
 
-int SQLiteDB::create_table(char* table_name) {
+int SQLiteDB::create_table(char* table_name, char* inits) {
 	int result;
-	char query[200];
-	sprintf(query, "CREATE TABLE IF NOT EXISTS %s (x REAL, y REAL, z REAL, name TEXT);", table_name);
+	char query[1000];
+	//(x REAL, y REAL, z REAL, name TEXT)
+	sprintf(query, "CREATE TABLE IF NOT EXISTS %s (%s);", table_name);
 
 	sqlite3_stmt *statement;
 	cout << query << endl;

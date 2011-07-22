@@ -19,7 +19,7 @@ public:
 	bool open();
 	vector<vector<string> > query(char* query);
 
-	int create_table(char* table_name);
+	int create_table(char* table_name, char* inits);
 
 	void close();
 private:
