@@ -1,0 +1,5 @@
+# Ignore everything in x3dna_temp directory since it's temporary
+x3dna_temp/*
+
+# Ignore the Debug compilation folder
+Debug/**
